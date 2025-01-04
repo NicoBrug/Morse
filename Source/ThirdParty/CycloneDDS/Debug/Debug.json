@@ -1,0 +1,1952 @@
+{
+    "PARTICIPANT": {
+        "New": {
+            "010ff28a-282b-c137-0000-0000000001c1": {
+                "key": "010ff28a-282b-c137-0000-0000000001c1"
+            },
+            "010ff28a-ec4b-36f2-0000-0000000001c1": {
+                "key": "010ff28a-ec4b-36f2-0000-0000000001c1"
+            },
+            "0110b04f-f010-b91f-8413-d89b000001c1": {
+                "key": "0110b04f-f010-b91f-8413-d89b000001c1"
+            },
+            "0110b04f-4786-5920-34a5-696c000001c1": {
+                "key": "0110b04f-4786-5920-34a5-696c000001c1"
+            },
+            "0110b04f-2551-763c-2460-8103000001c1": {
+                "key": "0110b04f-2551-763c-2460-8103000001c1"
+            }
+        },
+        "Disposed": {}
+    },
+    "SUBSCRIPTION": {
+        "New": {
+            "010ff28a-282b-c137-0000-000000000204": {
+                "key": "010ff28a-282b-c137-0000-000000000204",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "ros_discovery_info",
+                "type_name": "rmw_dds_common::msg::dds_::ParticipantEntitiesInfo_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-ec4b-36f2-0000-000000000204": {
+                "key": "010ff28a-ec4b-36f2-0000-000000000204",
+                "participant_key": "010ff28a-ec4b-36f2-0000-0000000001c1",
+                "topic_name": "ros_discovery_info",
+                "type_name": "rmw_dds_common::msg::dds_::ParticipantEntitiesInfo_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000504": {
+                "key": "010ff28a-282b-c137-0000-000000000504",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rq/rqt_gui_py_node_11048/describe_parametersRequest",
+                "type_name": "rcl_interfaces::srv::dds_::DescribeParameters_Request_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000704": {
+                "key": "010ff28a-282b-c137-0000-000000000704",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rq/rqt_gui_py_node_11048/get_parametersRequest",
+                "type_name": "rcl_interfaces::srv::dds_::GetParameters_Request_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000904": {
+                "key": "010ff28a-282b-c137-0000-000000000904",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rq/rqt_gui_py_node_11048/get_parameter_typesRequest",
+                "type_name": "rcl_interfaces::srv::dds_::GetParameterTypes_Request_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000b04": {
+                "key": "010ff28a-282b-c137-0000-000000000b04",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rq/rqt_gui_py_node_11048/list_parametersRequest",
+                "type_name": "rcl_interfaces::srv::dds_::ListParameters_Request_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000d04": {
+                "key": "010ff28a-282b-c137-0000-000000000d04",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rq/rqt_gui_py_node_11048/set_parametersRequest",
+                "type_name": "rcl_interfaces::srv::dds_::SetParameters_Request_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000f04": {
+                "key": "010ff28a-282b-c137-0000-000000000f04",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rq/rqt_gui_py_node_11048/set_parameters_atomicallyRequest",
+                "type_name": "rcl_interfaces::srv::dds_::SetParametersAtomically_Request_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000001104": {
+                "key": "010ff28a-282b-c137-0000-000000001104",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rt/rosout",
+                "type_name": "rcl_interfaces::msg::dds_::Log_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000001604": {
+                "key": "010ff28a-282b-c137-0000-000000001604",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rt/rosout",
+                "type_name": "rcl_interfaces::msg::dds_::Log_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "TypeConsistency": {
+                        "kind": "AllowTypeCoercion",
+                        "ignore_sequence_bounds": true,
+                        "ignore_string_bounds": true,
+                        "ignore_member_names": false,
+                        "prevent_type_widening": false,
+                        "force_type_validation": false
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            }
+        },
+        "Disposed": {}
+    },
+    "PUBLICATION": {
+        "New": {
+            "010ff28a-282b-c137-0000-000000000103": {
+                "key": "010ff28a-282b-c137-0000-000000000103",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "ros_discovery_info",
+                "type_name": "rmw_dds_common::msg::dds_::ParticipantEntitiesInfo_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000303": {
+                "key": "010ff28a-282b-c137-0000-000000000303",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rt/rosout",
+                "type_name": "rcl_interfaces::msg::dds_::Log_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 10000000000
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000403": {
+                "key": "010ff28a-282b-c137-0000-000000000403",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rt/parameter_events",
+                "type_name": "rcl_interfaces::msg::dds_::ParameterEvent_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000603": {
+                "key": "010ff28a-282b-c137-0000-000000000603",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rr/rqt_gui_py_node_11048/describe_parametersReply",
+                "type_name": "rcl_interfaces::srv::dds_::DescribeParameters_Response_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000803": {
+                "key": "010ff28a-282b-c137-0000-000000000803",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rr/rqt_gui_py_node_11048/get_parametersReply",
+                "type_name": "rcl_interfaces::srv::dds_::GetParameters_Response_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000a03": {
+                "key": "010ff28a-282b-c137-0000-000000000a03",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rr/rqt_gui_py_node_11048/get_parameter_typesReply",
+                "type_name": "rcl_interfaces::srv::dds_::GetParameterTypes_Response_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000c03": {
+                "key": "010ff28a-282b-c137-0000-000000000c03",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rr/rqt_gui_py_node_11048/list_parametersReply",
+                "type_name": "rcl_interfaces::srv::dds_::ListParameters_Response_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000000e03": {
+                "key": "010ff28a-282b-c137-0000-000000000e03",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rr/rqt_gui_py_node_11048/set_parametersReply",
+                "type_name": "rcl_interfaces::srv::dds_::SetParameters_Response_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-ec4b-36f2-0000-000000000103": {
+                "key": "010ff28a-ec4b-36f2-0000-000000000103",
+                "participant_key": "010ff28a-ec4b-36f2-0000-0000000001c1",
+                "topic_name": "ros_discovery_info",
+                "type_name": "rmw_dds_common::msg::dds_::ParticipantEntitiesInfo_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-ec4b-36f2-0000-000000000303": {
+                "key": "010ff28a-ec4b-36f2-0000-000000000303",
+                "participant_key": "010ff28a-ec4b-36f2-0000-0000000001c1",
+                "topic_name": "rt/rosout",
+                "type_name": "rcl_interfaces::msg::dds_::Log_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 10000000000
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-282b-c137-0000-000000001003": {
+                "key": "010ff28a-282b-c137-0000-000000001003",
+                "participant_key": "010ff28a-282b-c137-0000-0000000001c1",
+                "topic_name": "rr/rqt_gui_py_node_11048/set_parameters_atomicallyReply",
+                "type_name": "rcl_interfaces::srv::dds_::SetParametersAtomically_Response_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "010ff28a-ec4b-36f2-0000-000000000403": {
+                "key": "010ff28a-ec4b-36f2-0000-000000000403",
+                "participant_key": "010ff28a-ec4b-36f2-0000-0000000001c1",
+                "topic_name": "rt/parameter_events",
+                "type_name": "rcl_interfaces::msg::dds_::ParameterEvent_",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "Volatile"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 9223372036854775807
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 100000000
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": false
+                    }
+                }
+            },
+            "0110b04f-4786-5920-34a5-696c00000203": {
+                "key": "0110b04f-4786-5920-34a5-696c00000203",
+                "participant_key": "0110b04f-4786-5920-34a5-696c000001c1",
+                "topic_name": "rt/rosout",
+                "type_name": "rcl_interfaces::msg::Log",
+                "qos": {
+                    "DataRepresentation": {
+                        "use_cdrv0_representation": true,
+                        "use_xcdrv2_representation": false
+                    },
+                    "Deadline": {
+                        "deadline": 9223372036854775807
+                    },
+                    "DestinationOrder": {
+                        "kind": "ByReceptionTimestamp"
+                    },
+                    "Durability": {
+                        "kind": "TransientLocal"
+                    },
+                    "DurabilityService": {
+                        "cleanup_delay": 0,
+                        "history": {
+                            "depth": 1
+                        },
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "History": {
+                        "kind": "KeepLast",
+                        "depth": 1
+                    },
+                    "IgnoreLocal": {
+                        "kind": "Nothing"
+                    },
+                    "LatencyBudget": {
+                        "budget": 0
+                    },
+                    "Lifespan": {
+                        "lifespan": 9223372036854775807
+                    },
+                    "Liveliness": {
+                        "kind": "Automatic",
+                        "lease_duration": 1000000000
+                    },
+                    "Ownership": {
+                        "kind": "Shared"
+                    },
+                    "OwnershipStrength": {
+                        "strength": 0
+                    },
+                    "PresentationAccessScope": {
+                        "kind": "Instance",
+                        "coherent_access": false,
+                        "ordered_access": false
+                    },
+                    "ReaderDataLifecycle": {
+                        "autopurge_nowriter_samples_delay": 9223372036854775807,
+                        "autopurge_disposed_samples_delay": 9223372036854775807
+                    },
+                    "Reliability": {
+                        "kind": "Reliable",
+                        "max_blocking_time": 1
+                    },
+                    "ResourceLimits": {
+                        "max_samples": -1,
+                        "max_instances": -1,
+                        "max_samples_per_instance": -1
+                    },
+                    "TimeBasedFilter": {
+                        "filter_time": 0
+                    },
+                    "TransportPriority": {
+                        "priority": 0
+                    },
+                    "WriterDataLifecycle": {
+                        "autodispose": true
+                    }
+                }
+            }
+        },
+        "Disposed": {}
+    }
+}

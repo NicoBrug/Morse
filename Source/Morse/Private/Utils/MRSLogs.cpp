@@ -1,0 +1,4 @@
+#include "Utils/MRSLogs.h"
+
+DEFINE_LOG_CATEGORY(LogMorse);
+DEFINE_LOG_CATEGORY(LogDDS);
