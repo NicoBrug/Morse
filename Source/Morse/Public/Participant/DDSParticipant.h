@@ -30,6 +30,6 @@ public :
 
 	UDDSParticipant(const FObjectInitializer& Initializer);
 
-	void Init() override;
-	void Fini() override;
+	virtual void Initialize() override;
+	virtual void Terminate() override;
 };

@@ -38,7 +38,7 @@ public:
 	void Initialize(UDDSParticipant* OwnerParticipant)
 	{
 		SetParticipant(OwnerParticipant);
-		Init();
+		Initialize();
 	};
 
 	/**
@@ -46,13 +46,13 @@ public:
 	 *  SUCCESS STATE : EEntityState::INITIALIZED
 	 *  ERROR   STATE : EEntityState::NOT_INITIALIZED
 	 */
-	void Init() override;
+	virtual void Initialize() override;
 
 	/**
 	 * @brief Operation call at the destruction of the object. The memory deallocation of the topic is made here.
 	 */
 	UFUNCTION(BlueprintCallable)
-	void Fini() override;
+	virtual void Terminate() override;
 
 	/**
 	 * @brief Operation for settings the participant owner of the topic.

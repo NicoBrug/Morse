@@ -9,12 +9,15 @@ void UMorseEngineSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 
 
 	m_DefaultParticipant = NewObject<UDDSParticipant>(this);
-	m_DefaultParticipant->Init();
+	m_DefaultParticipant->Initialize();
 };
 
 void UMorseEngineSubsystem::Deinitialize()
 {
-
+	if(m_DefaultParticipant)
+	{
+		m_DefaultParticipant->Terminate();
+	}
 }
 
 UDDSParticipant* UMorseEngineSubsystem::GetDefaultParticipant()

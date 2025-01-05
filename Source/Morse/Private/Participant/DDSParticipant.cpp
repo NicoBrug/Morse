@@ -6,10 +6,10 @@
 
 UDDSParticipant::UDDSParticipant(const FObjectInitializer& Initializer)
 {
-	Init();
+	Initialize();
 };
 
-void UDDSParticipant::Init()
+void UDDSParticipant::Initialize()
 {
 	//dds_domainid_t DomainId = 1;
 	//dds_entity_t DomainEntity = dds_create_domain(DomainId, );
@@ -25,15 +25,15 @@ void UDDSParticipant::Init()
 	
 	if (m_Entity < 0)
 	{
-		m_State = EEntityState::NOT_INITIALIZED;
+		SetState(EEntityState::NOT_INITIALIZED);
 		return;
 	}
 
-	m_State = EEntityState::INITIALIZED;
+	SetState(EEntityState::INITIALIZED);
 };
 
-void UDDSParticipant::Fini()
+void UDDSParticipant::Terminate()
 {
 	RC_DDS_CHECK(dds_delete(m_Entity)); //DDS Check return code
-	m_State = EEntityState::DESTROYED;
+	SetState(EEntityState::DESTROYED);
 };

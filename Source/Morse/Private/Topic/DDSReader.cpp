@@ -8,35 +8,38 @@
 
 UDDSReader::UDDSReader(const FObjectInitializer& Initializer)
 {
-	m_Type = EEntityType::READER;
+	SetType(EEntityType::READER);
 }
 
 void UDDSReader::BeginDestroy()
 {
-	Fini();
-
+	if(!IsEntityDestroyed())
+	{
+		Terminate();
+	};
+	
 	UE_LOG(LogTemp, Log, TEXT("Reader destroyed"));
 
 	Super::BeginDestroy();
 };
 
-void UDDSReader::Init()
+void UDDSReader::Initialize()
 {
 	if (!IsValid(m_OwnerParticipant))
 	{
-		m_State = EEntityState::NOT_INITIALIZED;
+		SetState(EEntityState::NOT_INITIALIZED);
 		return;
 	};
 
 	if (!IsValid(m_ReaderTopic))
 	{
-		m_State = EEntityState::NOT_INITIALIZED;
+		SetState(EEntityState::NOT_INITIALIZED);
 		return;
 	};
 
 	dds_qos_t* Qos = dds_create_qos();
 
-	QoSUtils::SetQos(m_CurrentQoS, *Qos);
+	QoSUtils::SetQos(GetQoS(), *Qos);
 
 	rd_listener = dds_create_listener(NULL);
 	dds_lset_data_available_arg(rd_listener, DataAvailableHandler, this, false); 
@@ -57,30 +60,32 @@ void UDDSReader::Init()
 		{
 		case DDS_RETCODE_ERROR:
 			UE_LOG(LogTemp, Log, TEXT("Can't initialize Reader :An internal error occurred."))
-				break;
+			break;
 		default:
 			break;
 		}
 
-		m_State = EEntityState::NOT_INITIALIZED;
+		SetState(EEntityState::NOT_INITIALIZED);
 	}
 	else
 	{
-		m_State = EEntityState::INITIALIZED;
+		SetState(EEntityState::INITIALIZED);
 	};
 };
 
-void UDDSReader::Fini()
+void UDDSReader::Terminate()
 {
 	dds_delete_listener(rd_listener);
 	
 	if (m_ReaderTopic)
 	{
-		m_ReaderTopic->Fini();
+		m_ReaderTopic->Terminate();
 	};
 
 	dds_delete(m_Entity);
-}
+
+	SetState(EEntityState::DESTROYED);
+};
 
 void UDDSReader::Read()
 {

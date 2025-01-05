@@ -59,7 +59,7 @@ public:
 	void Initialize(UDDSParticipant* OwnerParticipant)
 	{
 		SetParticipant(OwnerParticipant);
-		Init();
+		Initialize();
 	};
 
 	/**
@@ -79,13 +79,13 @@ public:
 	 * - The method uses `RC_DDS_CHECK` macro to log any errors that occur during the
 	 *   DDS entity creation.
 	 */
-	void Init() override;
+	virtual void Initialize() override;
 
 	/**
 	 * @brief Clear any DDS Entity Holding by the Writer
 	 */
 	UFUNCTION(BlueprintCallable)
-	void Fini() override;
+	virtual void Terminate() override;
 
 	
 	UFUNCTION(BlueprintCallable, Category = "Topics")
@@ -123,6 +123,6 @@ private:
 	 * This variable is used to store an unsigned integer that represents various status codes.
 	 * The meaning of these codes is defined by the specific software component or module that uses this variable.
 	 */
-	uint32_t m_uiStatus = 0; // Current status of the Writer.
+	uint32_t m_uiStatus = 0; 
 
 };

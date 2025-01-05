@@ -25,7 +25,7 @@ bool UMorseLib::CreateWriter(
         pTopic->SetMessageType(DataType);
         pTopic->SetParticipant(Morse->GetDefaultParticipant());
         pTopic->SetQoS(Settings.QualityOfService);
-        pTopic->Init();
+        pTopic->Initialize();
     };
 
     UDDSWriter* Writer = NewObject<UDDSWriter>(Owner);
@@ -34,7 +34,7 @@ bool UMorseLib::CreateWriter(
         Writer->SetTopic(pTopic);
         Writer->SetParticipant(Morse->GetDefaultParticipant());
         Writer->SetQoS(Settings.QualityOfService);
-        Writer->Init();
+        Writer->Initialize();
     };
 
     UTopicProxy* dp = pTopic->GetTopicProxy();
@@ -68,7 +68,7 @@ bool UMorseLib::CreateReader(
         pTopic->SetMessageType(DataType); //TODO : Change function name and call in UTopic Initialisation 
         pTopic->SetParticipant(Morse->GetDefaultParticipant());
         pTopic->SetQoS(Settings.QualityOfService);
-        pTopic->Init();
+        pTopic->Initialize();
     }
 
     UDDSReader* Reader = NewObject<UDDSReader>(Owner);
@@ -78,7 +78,7 @@ bool UMorseLib::CreateReader(
         Reader->SetTopic(pTopic);
         Reader->SetParticipant(Morse->GetDefaultParticipant());
         Reader->SetQoS(Settings.QualityOfService);
-        Reader->Init();
+        Reader->Initialize();
     };
 
     OutTopicProxy = pTopic->GetTopicProxy();

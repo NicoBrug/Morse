@@ -7,33 +7,36 @@
 
 UDDSWriter::UDDSWriter(const FObjectInitializer& Initializer)
 {
-	m_Type = EEntityType::WRITER;
+	SetType(EEntityType::WRITER);
 }
 
 void UDDSWriter::BeginDestroy()
 {
-	Fini();
-	
+	if(!IsEntityDestroyed())
+	{
+		Terminate();
+	}
+		
 	Super::BeginDestroy();
 }
 
-void UDDSWriter::Init()
+void UDDSWriter::Initialize()
 {
 	if (!IsValid(m_OwnerParticipant))
 	{
-		m_State = EEntityState::NOT_INITIALIZED;
+		SetState(EEntityState::NOT_INITIALIZED);
 		return;
 	}
 
 	if (!IsValid(m_WriterTopic))
 	{
-		m_State = EEntityState::NOT_INITIALIZED;
+		SetState(EEntityState::NOT_INITIALIZED);
 		return;
 	};
 
 	dds_qos_t* Qos = dds_create_qos();
 
-	QoSUtils::SetQos(m_CurrentQoS, *Qos);
+	QoSUtils::SetQos(GetQoS(), *Qos);
 
 	m_Entity = dds_create_writer
 	(
@@ -49,20 +52,21 @@ void UDDSWriter::Init()
 
 	dds_set_status_mask(m_Entity, DDS_PUBLICATION_MATCHED_STATUS);
 
-	m_State = EEntityState::INITIALIZED;
+	SetState(EEntityState::INITIALIZED);
 }
 
-void UDDSWriter::Fini()
+void UDDSWriter::Terminate()
 {
 	if (m_WriterTopic)
 	{
-		UE_LOG(LogTemp, Log, TEXT("Writer topic fini"));
-
-		m_WriterTopic->Fini();
+		m_WriterTopic->Terminate();
+		UE_LOG(LogTemp, Log, TEXT("Writer topic Terminated"));
 	};
 
 	RC_DDS_CHECK(dds_delete(m_Entity));
-}
+
+	SetState(EEntityState::DESTROYED);
+};
 
 void UDDSWriter::Write()
 {

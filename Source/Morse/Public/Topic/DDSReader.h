@@ -36,13 +36,12 @@ public:
 	void Initialize(UDDSParticipant* OwnerParticipant)
 	{
 		SetParticipant(OwnerParticipant);
-		Init();
+		Initialize();
 	};
 
-
-	void Init() override;
-	void Fini() override;
-
+	virtual void Initialize() override;
+	virtual void Terminate() override;
+	
 	// Define a static callback function
 	static void DataAvailableHandler(dds_entity_t reader, void* arg)
 	{

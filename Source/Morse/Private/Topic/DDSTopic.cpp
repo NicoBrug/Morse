@@ -7,10 +7,10 @@
 
 UDDSTopic::UDDSTopic(const FObjectInitializer& Initializer)
 {
-    m_Type = EEntityType::TOPIC;
+    SetType(EEntityType::TOPIC);
 }
 
-void UDDSTopic::Init()
+void UDDSTopic::Initialize()
 {
     //TODO : To Delete ros prefix
     if (m_QosInfo.bUseRosPrefix)
@@ -21,13 +21,13 @@ void UDDSTopic::Init()
 
     if (!IsValid(m_OwnerParticipant))
     {
-        m_State = EEntityState::NOT_INITIALIZED;
+        SetState(EEntityState::NOT_INITIALIZED);
         return;
     }
 
     if (!IsValid(m_TopicProxy))
     {
-        m_State = EEntityState::NOT_INITIALIZED;
+        SetState(EEntityState::NOT_INITIALIZED);
         return;
     };    
 
@@ -48,10 +48,10 @@ void UDDSTopic::Init()
     
     dds_delete_qos(Qos);
 
-    m_State = EEntityState::INITIALIZED;
+    SetState(EEntityState::INITIALIZED);
 };
 
-void UDDSTopic::Fini()
+void UDDSTopic::Terminate()
 {
     RC_DDS_CHECK(dds_delete(m_Entity));  //DDS Check return code
     m_TopicProxy->Terminate();
