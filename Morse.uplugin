@@ -29,6 +29,11 @@
 			"Name": "MorseBlueprintLib",
 			"Type": "UncookedOnly",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "MorseTest",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	]
 }
