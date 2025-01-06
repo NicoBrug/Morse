@@ -16,7 +16,6 @@ public class MorseTest : ModuleRules
         PrivateDependencyModuleNames.AddRange(
             new string[]
             {
-                
                 "CoreUObject",
                 "Engine",
                 "Slate",
