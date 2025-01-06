@@ -2,55 +2,40 @@
 #include "Core/MorseEngineSubsystem.h"
 #include "Utils/MRSLogs.h"
 
-bool UMorseLib::CreateWriter(
+bool UMorseLib::CreateWriterBlueprint(
     UObject* Owner,
     FTopicDescription Settings,
     TSubclassOf<UTopicProxy> DataType,
     UTopicProxy*& OutTopicProxy,
     UDDSWriter*& OutWriter)
 {
-    if (!Owner)
-    {
-        UE_LOGFMT(LogMorse, Warning, "CreateWriter : No Valid Owner");
+    bool Res = UMorseLib::CreateWriter(Owner, Settings, DataType, OutWriter);
+
+    if(Res != true || !OutWriter || !OutWriter->GetTopic())
         return false;
-    };
-
-    UMorseEngineSubsystem* Morse = UMorseEngineSubsystem::Get();
-
-    UDDSTopic* pTopic = NewObject<UDDSTopic>(Owner);
-
-    if (pTopic)
-    {
-        pTopic->SetName(Settings.Name);
-        pTopic->SetMessageType(DataType);
-        pTopic->SetParticipant(Morse->GetDefaultParticipant());
-        pTopic->SetQoS(Settings.QualityOfService);
-        pTopic->Initialize();
-    };
-
-    UDDSWriter* Writer = NewObject<UDDSWriter>(Owner);
-    if (Writer)
-    {
-        Writer->SetTopic(pTopic);
-        Writer->SetParticipant(Morse->GetDefaultParticipant());
-        Writer->SetQoS(Settings.QualityOfService);
-        Writer->Initialize();
-    };
-
-    UTopicProxy* dp = pTopic->GetTopicProxy();
-    OutTopicProxy = dp;
-    OutWriter = Writer;    
-
-    UE_LOGFMT(LogMorse, Log, "Create Writer");
-
+    
+    OutTopicProxy = OutWriter->GetTopic()->GetTopicProxy();
     return true;
-}
+};
 
-bool UMorseLib::CreateReader(
+bool UMorseLib::CreateReaderBlueprint(
     UObject* Owner,
     FTopicDescription Settings,
     TSubclassOf<UTopicProxy> DataType,
     UTopicProxy*& OutTopicProxy,
+    UDDSReader*& OutReader)
+{
+
+    bool Res = UMorseLib::CreateReader(Owner, Settings, DataType, OutReader);
+
+    if(Res != true || !OutReader || !OutReader->GetTopic())
+        return false;
+    
+    OutTopicProxy = OutReader->GetTopic()->GetTopicProxy();
+    return true;
+};
+
+bool UMorseLib::CreateReader(UObject* Owner, FTopicDescription Settings, TSubclassOf<UTopicProxy> DataType,
     UDDSReader*& OutReader)
 {
     if (!Owner)
@@ -81,10 +66,44 @@ bool UMorseLib::CreateReader(
         Reader->Initialize();
     };
 
-    OutTopicProxy = pTopic->GetTopicProxy();
     OutReader = Reader;
-
-    UE_LOGFMT(LogMorse, Log, "Create Reader");
+    UE_LOGFMT(LogMorse, Log, "Create Reader -> Topic  {0} | DataType {1}", Settings.Name, *DataType->GetName());
     return true;
 };
 
+bool UMorseLib::CreateWriter(UObject* Owner, FTopicDescription Settings, TSubclassOf<UTopicProxy> DataType,
+    UDDSWriter*& OutWriter)
+{
+    if (!Owner)
+    {
+        UE_LOGFMT(LogMorse, Warning, "CreateWriter : No Valid Owner");
+        return false;
+    };
+
+    UMorseEngineSubsystem* Morse = UMorseEngineSubsystem::Get();
+
+    UDDSTopic* pTopic = NewObject<UDDSTopic>(Owner);
+
+    if (pTopic)
+    {
+        pTopic->SetName(Settings.Name);
+        pTopic->SetMessageType(DataType);
+        pTopic->SetParticipant(Morse->GetDefaultParticipant());
+        pTopic->SetQoS(Settings.QualityOfService);
+        pTopic->Initialize();
+    };
+
+    UDDSWriter* Writer = NewObject<UDDSWriter>(Owner);
+    if (Writer)
+    {
+        Writer->SetTopic(pTopic);
+        Writer->SetParticipant(Morse->GetDefaultParticipant());
+        Writer->SetQoS(Settings.QualityOfService);
+        Writer->Initialize();
+    };
+
+    OutWriter = Writer;    
+
+    UE_LOGFMT(LogMorse, Log, "Create Writer -> Topic  {0} | DataType {1}", Settings.Name, *DataType->GetName());
+    return true;
+};

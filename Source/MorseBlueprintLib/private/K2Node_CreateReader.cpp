@@ -306,7 +306,7 @@ void UK2Node_CreateReader::ExpandNode(FKismetCompilerContext& CompilerContext, U
 
     //Spawn Node Blueprint Function
     UK2Node_CallFunction* const CreateFunction = CompilerContext.SpawnIntermediateNode<UK2Node_CallFunction>(this, SourceGraph);
-    CreateFunction->FunctionReference.SetExternalMember(GET_FUNCTION_NAME_CHECKED(UMorseLib, CreateReader), UMorseLib::StaticClass());
+    CreateFunction->FunctionReference.SetExternalMember(GET_FUNCTION_NAME_CHECKED(UMorseLib, CreateReaderBlueprint), UMorseLib::StaticClass());
     CreateFunction->AllocateDefaultPins();
 
     //Get the input pin of the actual node (input & exec parameters exposed to blueprint)

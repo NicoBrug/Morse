@@ -285,7 +285,7 @@ void UK2Node_CreateWriter::ExpandNode(FKismetCompilerContext& CompilerContext, U
 
     //Spawn Node Blueprint Function
     UK2Node_CallFunction* const CreateWriterFunction = CompilerContext.SpawnIntermediateNode<UK2Node_CallFunction>(this, SourceGraph);
-    CreateWriterFunction->FunctionReference.SetExternalMember(GET_FUNCTION_NAME_CHECKED(UMorseLib, CreateWriter), UMorseLib::StaticClass());
+    CreateWriterFunction->FunctionReference.SetExternalMember(GET_FUNCTION_NAME_CHECKED(UMorseLib, CreateWriterBlueprint), UMorseLib::StaticClass());
     CreateWriterFunction->AllocateDefaultPins();
 
     //Get the input pin of the actual node (input & exec parameters exposed to blueprint)
