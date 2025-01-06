@@ -1,5 +1,5 @@
 /*****************************************************************
-* @file   DDSTopic.h
+ * @file   DDSTopic.h
  * @brief   This file contains the implementation of a DDS Topic. A topic is the most basic description of data that can be read/write.
  * A topic connect a DDS Data Reader and a Data Writer.
  * Topic : https://fast-dds.docs.eprosima.com/en/latest/fastdds/dds_layer/topic/topic.html

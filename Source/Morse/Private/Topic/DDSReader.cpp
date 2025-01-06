@@ -1,8 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "Topic/DDSReader.h"
-#include <Logging/StructuredLog.h>
 #include "Utils/MRSLogs.h"
 
 

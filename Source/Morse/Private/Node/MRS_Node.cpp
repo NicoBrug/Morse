@@ -1,4 +1,3 @@
-
 #include "Node/MRS_BaseNode.h"
 
 UDDSTopic* UMRS_BaseNode::CreateTopic(FTopicDescription Params, FQoSInfo QoS)

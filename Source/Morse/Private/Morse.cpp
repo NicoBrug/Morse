@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #include "Morse.h"
 
 #define LOCTEXT_NAMESPACE "FMorseModule"
