@@ -1,4 +1,11 @@
 ﻿#include "PrimitiveTestDDS.h"
+#include "ROSPrimitives.h"
+#include "Topic/DDSWriter.h"
+#include "Topic/DDSReader.h"
+#include "Topic/DDSTopic.h"
+#include "API/MorseBlueprintLib.h"
+#include "Core/MorseEngineSubsystem.h"
+#include "Misc/AutomationTest.h"
 
 // Define macros for expected values
 #define RESULT_PRIMITIVE_BOOL         true
@@ -45,11 +52,11 @@ void IDLPrimitiveSpec::Define()
 
 		UObject* Owner = GetTransientPackage();
 
-		UMorseLib::CreateWriter(Owner, TopicSettings, UPrimitives_TopicProxy::StaticClass(), TopicProxyBaseWriter, Writer);
-		TopicProxyWriter = Cast<UPrimitives_TopicProxy>(TopicProxyBaseWriter);
+		UMorseLib::CreateWriter(Owner, TopicSettings, UPrimitives_TopicProxy::StaticClass(), Writer);
+		TopicProxyWriter = Writer->GetTopicProxy<UPrimitives_TopicProxy>();
 
-		UMorseLib::CreateReader(Owner, TopicSettings, UPrimitives_TopicProxy::StaticClass(), TopicProxyBaseReader, Reader);
-		TopicProxyReader = Cast<UPrimitives_TopicProxy>(TopicProxyBaseReader);
+		UMorseLib::CreateReader(Owner, TopicSettings, UPrimitives_TopicProxy::StaticClass(), Reader);
+		TopicProxyReader = Reader->GetTopicProxy<UPrimitives_TopicProxy>();
 		
 		FROSPrimitives DataToWrite;
 		DataToWrite.BoolValue = RESULT_PRIMITIVE_BOOL;
