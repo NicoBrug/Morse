@@ -38,10 +38,9 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static bool CreateWriterBlueprint(UObject* Owner, FTopicDescription Settings, TSubclassOf<UTopicProxy> DataType, UTopicProxy*& OutTopicProxy, UDDSWriter*& OutWriter);
-
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static bool CreateWriter(UObject* Owner, FTopicDescription Settings, TSubclassOf<UTopicProxy> DataType, UDDSWriter*& OutWriter);
-
+	
+	
 	/**
 	 * @brief Creates a DDS Reader to subscribe to a specified topic.
 	 *
@@ -59,8 +58,5 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static bool CreateReaderBlueprint(UObject* Owner, FTopicDescription Settings, TSubclassOf<UTopicProxy> DataType, UTopicProxy*& OutTopicProxy, UDDSReader*& OutReader);
-
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static bool CreateReader(UObject* Owner, FTopicDescription Settings, TSubclassOf<UTopicProxy> DataType, UDDSReader*& OutReader);
-
 };
