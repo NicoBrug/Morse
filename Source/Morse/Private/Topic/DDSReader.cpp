@@ -18,20 +18,20 @@ void UDDSReader::BeginDestroy()
 		Terminate();
 	};
 	
-	UE_LOG(LogTemp, Log, TEXT("Reader destroyed"));
+	UE_LOG(LogMorse, Log, TEXT("Reader Terminated"));
 
 	Super::BeginDestroy();
 };
 
 void UDDSReader::Initialize()
 {
-	if (!IsValid(m_OwnerParticipant))
+	if (!IsValid(OwnerParticipant))
 	{
 		SetState(EEntityState::NOT_INITIALIZED);
 		return;
 	};
 
-	if (!IsValid(m_ReaderTopic))
+	if (!IsValid(Topic))
 	{
 		SetState(EEntityState::NOT_INITIALIZED);
 		return;
@@ -41,25 +41,25 @@ void UDDSReader::Initialize()
 
 	QoSUtils::SetQos(GetQoS(), *Qos);
 
-	rd_listener = dds_create_listener(NULL);
-	dds_lset_data_available_arg(rd_listener, DataAvailableHandler, this, false); 
+	Listener = dds_create_listener(NULL);
+	dds_lset_data_available_arg(Listener, DataAvailableHandler, this, false); 
 
-	m_Entity = dds_create_reader
+	EntityHandler = dds_create_reader
 	(
-		m_OwnerParticipant->GetEntity(),
-		m_ReaderTopic->GetEntity(),
+		OwnerParticipant->GetEntity(),
+		Topic->GetEntity(),
 		Qos,
-		rd_listener
+		Listener
 	);
 
-	RC_DDS_CHECK(m_Entity); //DDS Check return code
+	RC_DDS_CHECK(EntityHandler); //DDS Check return code
 	
-	if (m_Entity < 0)
+	if (EntityHandler < 0)
 	{
-		switch (m_Entity)
+		switch (EntityHandler)
 		{
 		case DDS_RETCODE_ERROR:
-			UE_LOG(LogTemp, Log, TEXT("Can't initialize Reader :An internal error occurred."))
+			UE_LOG(LogMorse, Log, TEXT("Can't initialize Reader :An internal error occurred."))
 			break;
 		default:
 			break;
@@ -75,38 +75,38 @@ void UDDSReader::Initialize()
 
 void UDDSReader::Terminate()
 {
-	dds_delete_listener(rd_listener);
+	dds_delete_listener(Listener);
 	
-	if (m_ReaderTopic)
+	if (Topic)
 	{
-		m_ReaderTopic->Terminate();
+		Topic->Terminate();
 	};
 
-	dds_delete(m_Entity);
+	dds_delete(EntityHandler);
 
 	SetState(EEntityState::DESTROYED);
 };
 
 void UDDSReader::Read()
 {
-	int rc = 0;
+	int Rc = 0;
 
-	if (!IsValid(m_ReaderTopic))
+	if (!IsValid(Topic))
 		return;
 
 	dds_sample_info_t infos[1];
 
-	void* data = m_ReaderTopic->GetTopicProxy()->Get();
-	rc = dds_read
+	void* Data = Topic->GetTopicProxy()->Get();
+	Rc = dds_read
 	(
-		m_Entity,
-		&data,
+		EntityHandler,
+		&Data,
 		infos,
-		m_ReaderTopic->GetTopicProxy()->GetTypeDesc()->m_size,
+		Topic->GetTopicProxy()->GetTypeDesc()->m_size,
 		1
 	);
 	
-	RC_DDS_CHECK(rc); //DDS Check return code
+	RC_DDS_CHECK(Rc); //DDS Check return code
 };
 
 

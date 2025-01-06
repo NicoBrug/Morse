@@ -12,20 +12,13 @@ UDDSTopic::UDDSTopic(const FObjectInitializer& Initializer)
 
 void UDDSTopic::Initialize()
 {
-    //TODO : To Delete ros prefix
-    if (m_QosInfo.bUseRosPrefix)
-    {
-        FString Prefix = TEXT("");
-        m_Name = Prefix.Append(m_Name);
-    };
-
-    if (!IsValid(m_OwnerParticipant))
+    if (!IsValid(OwnerParticipant))
     {
         SetState(EEntityState::NOT_INITIALIZED);
         return;
     }
 
-    if (!IsValid(m_TopicProxy))
+    if (!IsValid(Topic))
     {
         SetState(EEntityState::NOT_INITIALIZED);
         return;
@@ -33,18 +26,18 @@ void UDDSTopic::Initialize()
 
     dds_qos_t* Qos = dds_create_qos();
 
-    QoSUtils::SetQos(m_QosInfo, *Qos);
+    QoSUtils::SetQos(GetQoS(), *Qos);
 
-    m_Entity = dds_create_topic
+    EntityHandler = dds_create_topic
     (
-        m_OwnerParticipant->GetEntity(),
-        m_TopicProxy->GetTypeDesc(),
-        StringCast<ANSICHAR>(*m_Name).Get(),
+        OwnerParticipant->GetEntity(),
+        Topic->GetTypeDesc(),
+        StringCast<ANSICHAR>(*TopicName).Get(),
         Qos,
         NULL
     );
 
-    RC_DDS_CHECK(m_Entity); //DDS Check return code
+    RC_DDS_CHECK(EntityHandler); //DDS Check return code
     
     dds_delete_qos(Qos);
 
@@ -53,8 +46,9 @@ void UDDSTopic::Initialize()
 
 void UDDSTopic::Terminate()
 {
-    RC_DDS_CHECK(dds_delete(m_Entity));  //DDS Check return code
-    m_TopicProxy->Terminate();
+    RC_DDS_CHECK(dds_delete(EntityHandler));  //DDS Check return code
+    Topic->Terminate();
+    SetState(EEntityState::DESTROYED);
 };
 
 void UDDSTopic::SetMessageType(TSubclassOf<UTopicProxy> MsgClass)
@@ -65,8 +59,8 @@ void UDDSTopic::SetMessageType(TSubclassOf<UTopicProxy> MsgClass)
         
         if (NewMsgObject)
         {
-            m_TopicProxy = NewMsgObject;
-            m_TopicProxy->Initialize();
+            Topic = NewMsgObject;
+            Topic->Initialize();
         }
         else
         {

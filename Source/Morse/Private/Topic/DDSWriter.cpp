@@ -22,13 +22,13 @@ void UDDSWriter::BeginDestroy()
 
 void UDDSWriter::Initialize()
 {
-	if (!IsValid(m_OwnerParticipant))
+	if (!IsValid(OwnerParticipant))
 	{
 		SetState(EEntityState::NOT_INITIALIZED);
 		return;
 	}
 
-	if (!IsValid(m_WriterTopic))
+	if (!IsValid(Topic))
 	{
 		SetState(EEntityState::NOT_INITIALIZED);
 		return;
@@ -38,63 +38,63 @@ void UDDSWriter::Initialize()
 
 	QoSUtils::SetQos(GetQoS(), *Qos);
 
-	m_Entity = dds_create_writer
+	EntityHandler = dds_create_writer
 	(
-		m_OwnerParticipant->GetEntity(),
-		m_WriterTopic->GetEntity(),
+		OwnerParticipant->GetEntity(),
+		Topic->GetEntity(),
 		Qos,
 		NULL
 	);
 	
-	RC_DDS_CHECK(m_Entity);
+	RC_DDS_CHECK(EntityHandler);
 
 	dds_delete_qos(Qos);
 
-	dds_set_status_mask(m_Entity, DDS_PUBLICATION_MATCHED_STATUS);
+	dds_set_status_mask(EntityHandler, DDS_PUBLICATION_MATCHED_STATUS);
 
 	SetState(EEntityState::INITIALIZED);
 }
 
 void UDDSWriter::Terminate()
 {
-	if (m_WriterTopic)
+	if (Topic)
 	{
-		m_WriterTopic->Terminate();
-		UE_LOG(LogTemp, Log, TEXT("Writer topic Terminated"));
+		Topic->Terminate();
+		UE_LOG(LogMorse, Log, TEXT("Writer topic Terminated"));
 	};
 
-	RC_DDS_CHECK(dds_delete(m_Entity));
+	RC_DDS_CHECK(dds_delete(EntityHandler));
 
 	SetState(EEntityState::DESTROYED);
 };
 
 void UDDSWriter::Write()
 {
-	int rc = 0;
+	int Rc = 0;
 
 	// If we found a compatible reader (topic & QoS) we set value of this topic on DDS.
-	if (!(m_uiStatus & DDS_PUBLICATION_MATCHED_STATUS))
+	if (!(EntityDDSStatus & DDS_PUBLICATION_MATCHED_STATUS))
 	{
-		rc = dds_get_status_changes(m_Entity, &m_uiStatus);
-		if (rc != DDS_RETCODE_OK)
+		Rc = dds_get_status_changes(EntityHandler, &EntityDDSStatus);
+		if (Rc != DDS_RETCODE_OK)
 			return;
 	}
 
-	if (!m_WriterTopic->IsValidLowLevel())
+	if (!Topic->IsValidLowLevel())
 		return;
 
-	if (!m_WriterTopic->GetTopicProxy())
+	if (!Topic->GetTopicProxy())
 		return;
 
-	if (!m_WriterTopic->GetTopicProxy()->Get())
+	if (!Topic->GetTopicProxy()->Get())
 		return;
 	
 	//Write data on DDS
-	rc = dds_write
+	Rc = dds_write
 	(
-		m_Entity,
-		m_WriterTopic->GetTopicProxy()->Get()
+		EntityHandler,
+		Topic->GetTopicProxy()->Get()
 	);
 	
-	RC_DDS_CHECK(rc); //DDS Check return code
+	RC_DDS_CHECK(Rc); //DDS Check return code
 };

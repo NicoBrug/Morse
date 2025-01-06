@@ -12,7 +12,6 @@
 
 #include "CoreMinimal.h"
 #include "TopicProxy.h"
-#include "UObject/NoExportTypes.h"
 #include "ddsc/dds.h"
 #include "Participant/DDSParticipant.h"
 #include "DDSTopic.generated.h"
@@ -37,9 +36,9 @@ public:
 	UDDSTopic(const FObjectInitializer& Initializer);
 
 	UFUNCTION(BlueprintCallable)
-	void Initialize(UDDSParticipant* OwnerParticipant)
+	void Initialize(UDDSParticipant* InOwnerParticipant)
 	{
-		SetParticipant(OwnerParticipant);
+		SetParticipant(InOwnerParticipant);
 		Initialize();
 	};
 
@@ -63,7 +62,7 @@ public:
 	 */
 	void SetParticipant(UDDSParticipant* participant)
 	{
-		m_OwnerParticipant = participant;
+		OwnerParticipant = participant;
 	};
 
 	/**
@@ -81,47 +80,64 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MRS TopicProxy")
 	UTopicProxy* GetTopicProxy()
 	{
-		if (!IsValid(m_TopicProxy))
+		if (!IsValid(Topic))
 			return nullptr;
 
-		return m_TopicProxy;
+		return Topic;
+	};
+
+	/**
+	 * @brief Retrieve the topic as a specified type.
+	 * @tparam T The desired type of the topic.
+	 * @return A pointer to the topic of type T, or nullptr if the cast fails.
+	 */
+	template <typename T>
+	T* GetProxy()
+	{
+		if (!IsValid(Topic))
+		{
+			// Log a warning if the topic is invalid.
+			UE_LOG(LogTemp, Warning, TEXT("Topic is invalid."));
+			return nullptr;
+		}
+
+		// Attempt to cast the topic to the specified type.
+		T* CastedTopic = Cast<T>(Topic);
+		if (!CastedTopic)
+		{
+			// Log an error if the cast fails.
+			UE_LOG(LogTemp, Error, TEXT("Failed to cast Topic to the specified type: %s"), *T::StaticClass()->GetName());
+		}
+
+		return CastedTopic;
 	};
 	
-	void SetName(FString Name)
+	void SetName(FString InName)
 	{
-		m_Name = Name;
+		TopicName = InName;
 	};
 
 	FString GetName()
 	{
-		return m_Name;
+		return TopicName;
 	};
 	
 	/**
 	 * @brief Pointer to the associated TopicProxy object.
 	 */
 	UPROPERTY()
-	TObjectPtr<UTopicProxy> m_TopicProxy;
-
-	/**
-	 * @brief Contains Quality of Service settings for the DDS topic.
-	 *
-	 * This member variable holds an instance of the FQoSInfo structure,
-	 * which defines the QoS policies for the DDS topic associated with
-	 * the UDDSTopic object.
-	 */
-	FQoSInfo m_QosInfo;
+	TObjectPtr<UTopicProxy> Topic;
 
 	/**
 	 * @brief Pointer to the owning DDS Participant.
 	 * Using at creation of the topic.
 	 */
 	UPROPERTY()
-	UDDSParticipant* m_OwnerParticipant;
+	UDDSParticipant* OwnerParticipant;
 	
 private :
 	/**
      * @brief Holds the name of the DDS Topic.
      */
-	 FString m_Name;
+	 FString TopicName;
 };

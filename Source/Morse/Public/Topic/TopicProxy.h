@@ -32,9 +32,6 @@ public:
      * @deprecated DEPRECATED, Use Initialize instead
      * @details This function is used for allocated the data in the TopicProxy.
      */
-    //UFUNCTION(BlueprintCallable)
-    //virtual void Init() {};
-
     UFUNCTION(BlueprintCallable)
     virtual void Initialize() {};
 
@@ -43,9 +40,6 @@ public:
      * @deprecated DEPRECATED, Use Terminate instead
      * @details This function is used for Data desallocation (at the end of the TopicProxy life)
      */
-    //UFUNCTION(BlueprintCallable)
-    //virtual void Fini() {};
-
     UFUNCTION(BlueprintCallable)
     virtual void Terminate() {};
 
@@ -80,10 +74,10 @@ public:
 
     /**
      * @brief Gets the type descriptor of the message. 
-     * @details This function returns the type descriptor of the data. The type descriptor is used for identify the data on the network.
+     * @details This function returns the type descriptor of the data  topic. The type descriptor is used for identify the data on the network.
      * /!\ In ROS, the type desc are not the type desc used at runtime by ROS. When we compile .idl with other compiler (like cyclone)
-     * the type descriptor are like this : rcl_interfaces::msg:::Log, and if we run a topic with ROS the topic descriptor are like this :
-     * rcl_interfaces::msg::dds_::Log. So, we need to modify manually the Topic descriptor to match with ROS QOS. 
+     * the type descriptor are like this : rcl_interfaces::msg::Log, and if we run a topic with ROS the topic descriptor are like this :
+     * rcl_interfaces::msg::dds_::Log_. So, we need to modify manually the Topic descriptor to match with ROS QOS. 
      * @return The type descriptor of the message.
      */
     virtual const dds_topic_descriptor_t* GetTypeDesc()

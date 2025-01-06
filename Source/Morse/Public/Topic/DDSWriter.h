@@ -10,9 +10,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "ddsc/dds.h"
-
 #include "Topic/DDSTopic.h"
 #include "Participant/DDSParticipant.h"
 
@@ -57,9 +55,9 @@ public:
 	 * Initializes the writer.
 	 */
 	UFUNCTION(BlueprintCallable)
-	void Initialize(UDDSParticipant* OwnerParticipant)
+	void Initialize(UDDSParticipant* InOwnerParticipant)
 	{
-		SetParticipant(OwnerParticipant);
+		SetParticipant(InOwnerParticipant);
 		Initialize();
 	};
 
@@ -88,17 +86,31 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual void Terminate() override;
 
+	UFUNCTION(BlueprintCallable, Category = "Topics")
+	UDDSTopic* GetTopic()
+	{
+		return Topic;
+	};
+
+	template <typename T>
+	T* GetTopicProxy()
+	{
+		if(!Topic)
+			return nullptr;
+		
+		return Topic->GetProxy<T>();
+	};
 	
 	UFUNCTION(BlueprintCallable, Category = "Topics")
 	void SetTopic(UDDSTopic* WriterTopic)
 	{
-		m_WriterTopic = WriterTopic;
+		Topic = WriterTopic;
 	};
 	
 	UFUNCTION(BlueprintCallable, Category = "Topics")
-	void SetParticipant(UDDSParticipant* OwnerParticipant)
+	void SetParticipant(UDDSParticipant* InOwnerParticipant)
 	{
-		m_OwnerParticipant = OwnerParticipant;
+		OwnerParticipant = InOwnerParticipant;
 	};
 	
 	UFUNCTION(BlueprintCallable, Category = "Topics")
@@ -112,10 +124,10 @@ public:
 	 * before the writer can be used to publish data successfully. 
 	 */
 	UPROPERTY()
-	UDDSTopic* m_WriterTopic;
+	UDDSTopic* Topic;
 	
 	UPROPERTY()
-	UDDSParticipant* m_OwnerParticipant;
+	UDDSParticipant* OwnerParticipant;
 
 private:
 	/**
@@ -124,6 +136,5 @@ private:
 	 * This variable is used to store an unsigned integer that represents various status codes.
 	 * The meaning of these codes is defined by the specific software component or module that uses this variable.
 	 */
-	uint32_t m_uiStatus = 0; 
-
+	uint32_t EntityDDSStatus = 0; 
 };

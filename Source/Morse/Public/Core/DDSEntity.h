@@ -86,7 +86,7 @@ public:
 	 */
 	dds_entity_t GetEntity() const
 	{
-		return m_Entity;
+		return EntityHandler;
 	};
 
 	/**
@@ -145,5 +145,5 @@ protected:
 	EEntityType Type = EEntityType::NONE;
 	
 	/** @brief Handle to the underlying DDS entity. */
-	dds_entity_t m_Entity;
+	dds_entity_t EntityHandler;
 };

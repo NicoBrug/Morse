@@ -1,6 +1,6 @@
 ﻿/*****************************************************************
 * @file   MRSConvertUtils.h
- * @brief   This file contains different utility fonction used in Morse Plugin. (Conversion, Helper, etc)
+ * @brief   This file contains different utility function used in Morse Plugin. (Conversion, Helper, etc)
  * 
  * @author Nicolas B.
  * @date   March 2024
