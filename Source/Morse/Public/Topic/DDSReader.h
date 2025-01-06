@@ -33,9 +33,9 @@ public:
 	virtual void BeginDestroy() override;
 
 	UFUNCTION(BlueprintCallable)
-	void Initialize(UDDSParticipant* OwnerParticipant)
+	void Initialize(UDDSParticipant* InOwnerParticipant)
 	{
-		SetParticipant(OwnerParticipant);
+		SetParticipant(InOwnerParticipant);
 		Initialize();
 	};
 
@@ -43,15 +43,15 @@ public:
 	virtual void Terminate() override;
 	
 	// Define a static callback function
-	static void DataAvailableHandler(dds_entity_t reader, void* arg)
+	static void DataAvailableHandler(dds_entity_t Reader, void* Arg)
 	{
-		if(reader == 0)
+		if(Reader == 0)
 			return;
 		
-		UDDSReader* instance = static_cast<UDDSReader*>(arg);
-		if (instance)
+		UDDSReader* ReaderInstance = static_cast<UDDSReader*>(Arg);
+		if (ReaderInstance)
 		{
-			instance->OnDataAvailable(reader);
+			ReaderInstance->OnDataAvailable(Reader);
 		}
 	}
 
@@ -59,11 +59,25 @@ public:
 	void OnDataAvailable(dds_entity_t reader)
 	{
 		Read();
-		if(m_ReaderTopic && m_ReaderTopic->GetTopicProxy())
-			m_ReaderTopic->GetTopicProxy()->ExecuteMessageCallback();
+		if(Topic && Topic->GetTopicProxy())
+			Topic->GetTopicProxy()->ExecuteMessageCallback();
 	};
 
+	UFUNCTION(BlueprintCallable, Category = "Topics")
+	UDDSTopic* GetTopic()
+	{
+		return Topic;
+	};
 
+	template <typename T>
+	T* GetTopicProxy()
+	{
+		if(!Topic)
+			return nullptr;
+		
+		return Topic->GetProxy<T>();
+	};
+	
 	/**
 	 * @brief Sets the DDS topic for the reader.
 	 *
@@ -74,7 +88,7 @@ public:
 	 */
 	void SetTopic(UDDSTopic* ReaderTopic)
 	{
-		m_ReaderTopic = ReaderTopic;
+		Topic = ReaderTopic;
 	};
 
 	/**
@@ -85,9 +99,9 @@ public:
 	 *
 	 * @param OwnerParticipant A pointer to the UDDSParticipant instance that will own this reader.
 	 */
-	void SetParticipant(UDDSParticipant* OwnerParticipant)
+	void SetParticipant(UDDSParticipant* InOwnerParticipant)
 	{
-		m_OwnerParticipant = OwnerParticipant;
+		OwnerParticipant = InOwnerParticipant;
 	};
 
 	/**
@@ -111,13 +125,13 @@ public:
 	 * associated with the topic.
 	 */
 	UPROPERTY()
-	UDDSTopic* m_ReaderTopic;
+	UDDSTopic* Topic;
 
 	/**
 	 * Pointer to the UDDSParticipant instance that owns this reader.
 	 */
 	UPROPERTY()
-	UDDSParticipant* m_OwnerParticipant;
+	UDDSParticipant* OwnerParticipant;
 
 	/**
 	 * @brief Listener for Data Distribution Service (DDS) events.
@@ -131,7 +145,7 @@ public:
 	 * @note This listener is critical for ensuring the DDS reader can respond to data
 	 *       events as they occur.
 	 */
-	dds_listener_t* rd_listener;
+	dds_listener_t* Listener;
 
 	/**
 	 * @brief Size of the buffer used by the DDS reader.
@@ -142,12 +156,4 @@ public:
 	 * optimizing the performance and memory utilization of the DDS reader.
 	 */
 	size_t SizeBuff;
-
-	/**
-	 * @brief Pointer to general-purpose data buffer.
-	 *
-	 * This pointer is initialized to nullptr and intended for use as a buffer or temporary storage.
-	 * It is the caller's responsibility to manage the memory allocation and deallocation associated with this pointer.
-	 */
-	void* Data = nullptr;
 };
