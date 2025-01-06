@@ -55,9 +55,8 @@ class MORSE_API UMorseEngineSubsystem : public UEngineSubsystem
 
 public:
 
-	void Initialize(FSubsystemCollectionBase& Collection) override;
-	
-    void Deinitialize() override;
+	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+    virtual void Deinitialize() override;
 
     static UMorseEngineSubsystem* Get()
     {
