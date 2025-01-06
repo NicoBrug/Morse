@@ -1,3 +1,12 @@
+/*****************************************************************
+* @file   DDSEntity.h
+ * @brief  This file contains the implementation of the abstract class who represent a DDS Entity.
+ * A DDS Entity https://fast-dds.docs.eprosima.com/en/latest/fastdds/dds_layer/core/entity/entity.html
+ * 
+ * @author nicol
+ * @date   January 2025
+ * @copyright Copyright 2023 NicoBrugie. All rights reserved.
+ *********************************************************************/
 #pragma once
 
 #include "ddsc/dds.h"

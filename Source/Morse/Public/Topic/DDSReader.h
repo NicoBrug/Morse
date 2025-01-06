@@ -1,6 +1,6 @@
-/*****************************************************************//**
+/*****************************************************************
  * @file   DDSReader.h
- * @brief  Classe permettant de lire des donn�es sur le service de distribution de donn�es.
+ * @brief  This file contains the implementation of a DDS Reader. A data reader can read Data on the DDS Global Data Space.
  * 
  * @author Nicolas B.
  * @date   March 2024

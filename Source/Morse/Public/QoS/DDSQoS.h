@@ -1,6 +1,7 @@
-/*****************************************************************//**
+/*****************************************************************
  * @file   DDSQoS.h
- * @brief  /
+ * @brief  This file contains the implementation of the definitions of the different QoS according to DDS Specificication
+ * QoS : https://fast-dds.docs.eprosima.com/en/latest/fastdds/dds_layer/core/policy/standardQosPolicies.html
  * 
  * @author Nicolas B.
  * @date   March 2024

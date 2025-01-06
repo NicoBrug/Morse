@@ -1,4 +1,4 @@
- #pragma once
+#pragma once
 
 #include "Core/DDSEntity.h"
 #include "Participant/DDSParticipant.h"
@@ -16,7 +16,7 @@ public:
     MRSExecutor();
     ~MRSExecutor();
 
-    dds_entity_t m_Waitset; 
+    dds_entity_t m_Waitset;
 
     void Init(UDDSParticipant* Participant)
     {

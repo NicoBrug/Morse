@@ -1,5 +1,11 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
-
+﻿/*****************************************************************
+* @file   MRSConvertUtils.h
+ * @brief   This file contains different utility fonction used in Morse Plugin. (Conversion, Helper, etc)
+ * 
+ * @author Nicolas B.
+ * @date   March 2024
+ * @copyright Nicolas Brugie. All rights reserved.
+ *********************************************************************/
 #pragma once
 
 #include "CoreMinimal.h"

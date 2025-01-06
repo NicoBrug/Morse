@@ -1,11 +1,10 @@
-/*****************************************************************//**
+/*****************************************************************
  * @file   RosBlueprintFunctionLibrary.h
  * @brief  C++ and Blueprint API for simplify the creation of Publisher and Subscriber
  * 
  * @author nicol
  * @date   January 2024
  * @copyright Copyright 2023 NicoBrugie. All rights reserved.
-    This project is released under the GNU Public License.
  *********************************************************************/
 #pragma once
 

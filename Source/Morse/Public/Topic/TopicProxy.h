@@ -1,12 +1,13 @@
-/*****************************************************************//**
- * \file   RosVector3.h
- * \brief  /
+/*****************************************************************
+* @file   DDSTopic.h
+ * @brief   This file contains the implementation of a DDS Topic. A topic is the most basic description of data that can be read/write.
+ * A topic connect a DDS Data Reader and a Data Writer.
+ * Topic : https://fast-dds.docs.eprosima.com/en/latest/fastdds/dds_layer/topic/topic.html
  * 
- * \author Nicolas B.
- * \date   December 2023
- * \copyright Copyright 2023 NicoBrugie. All rights reserved.
+ * @author Nicolas B.
+ * @date   March 2024
+ * @copyright Nicolas Brugie. All rights reserved.
  *********************************************************************/
-
 #pragma once 
 #include "CoreMinimal.h" 
 #include "ddsc/dds.h"

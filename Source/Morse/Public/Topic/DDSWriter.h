@@ -1,8 +1,9 @@
-/*****************************************************************//**
+/*****************************************************************
  * @file   DDSWriter.h
- * @brief  Classe permettant d'�crire des donn�es sur DDS. Le writer �crit sur un topic.
+ * @brief  This file contains the implementation of a DDS Writer. A data writer can write Data on the DDS Global Data Space.
+ * Writer : https://fast-dds.docs.eprosima.com/en/latest/fastdds/dds_layer/publisher/dataWriter/dataWriter.html
  * 
- * @author Nicolas B.as B.
+ * @author Nicolas B
  * @date   March 2024
  * @copyright Nicolas Brugie. All rights reserved.
  *********************************************************************/

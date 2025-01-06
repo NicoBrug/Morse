@@ -1,3 +1,11 @@
+/*****************************************************************
+* @file   MRSLogs.h
+ * @brief   This file contains all code related to custom Logs. (DDS Error Mapping, Custom Logs etc)
+ * 
+ * @author Nicolas B.
+ * @date   March 2024
+ * @copyright Nicolas Brugie. All rights reserved.
+ *********************************************************************/
 #pragma once
 
 #include <Runtime/Core/Public/Logging/StructuredLog.h>
