@@ -1,6 +1,5 @@
-# Blueprint API
+# Morse Blueprint API Reference
 
-## General
 All the blueprint API is accessibles type "morse" in the blueprint actions.
 
 ![alt text](Images/BP_API.png)

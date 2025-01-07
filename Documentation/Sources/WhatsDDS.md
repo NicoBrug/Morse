@@ -1,4 +1,3 @@
-
 ## What's DDS?
 The Data Distribution Service (DDS) is a middleware protocol designed for real-time data exchange in distributed systems. It facilitates the sharing of information between multiple applications across various platforms, promoting interoperability and scalability.
 

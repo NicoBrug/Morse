@@ -1,6 +1,5 @@
 # C++ API
 
-
 # Write Data on DDS
 Add the include for DDS Writer
 ```
@@ -20,7 +19,6 @@ Writer->Write();
 Add the include for DDS Reader
 ```
 #include "Topic/DDSReader.h" 
-
 ```
 Create Reader
 ```

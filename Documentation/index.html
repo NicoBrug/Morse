@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to Parent</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Redirige vers le fichier index.html situé dans le dossier parent
+            const parentIndexPath = "generated/html/index.html";
+            window.location.href = parentIndexPath;
+        });
+    </script>
+</head>
+<body>
+    <p>If you are not redirected automatically, <a href="generated/html/index.html">click here</a>.</p>
+</body>
+</html>
