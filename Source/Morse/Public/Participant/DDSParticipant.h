@@ -17,7 +17,7 @@
 
 
 
-
+class FDDSDomain;
 
 /**
  * 
@@ -33,4 +33,8 @@ public :
 
 	virtual void Initialize() override;
 	virtual void Terminate() override;
+
+private:
+
+	FDDSDomain* Domain;
 };
