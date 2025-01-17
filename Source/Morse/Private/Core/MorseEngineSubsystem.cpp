@@ -1,23 +1,30 @@
 #include "Core/MorseEngineSubsystem.h"
+#include "Engine/World.h"
+
+#include "Core/MorseSettings.h"
 
 void UMorseEngineSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
 	Super::Initialize(Collection);
 
-
-	m_DefaultParticipant = NewObject<UDDSParticipant>(this);
-	m_DefaultParticipant->Initialize();
+	FWorldDelegates::OnPostWorldInitialization.AddUObject(this, &UMorseEngineSubsystem::OnPostWorldInit);
 };
 
 void UMorseEngineSubsystem::Deinitialize()
 {
-	if(m_DefaultParticipant)
+	if(DefaultParticipant)
 	{
-		m_DefaultParticipant->Terminate();
+		DefaultParticipant->Terminate();
 	}
 }
 
+void UMorseEngineSubsystem::OnPostWorldInit(UWorld* pWorld, const UWorld::InitializationValues)
+{
+	DefaultParticipant = NewObject<UDDSParticipant>(this);
+	DefaultParticipant->Initialize();
+};
+
 UDDSParticipant* UMorseEngineSubsystem::GetDefaultParticipant()
 {
-    return m_DefaultParticipant;
+    return DefaultParticipant;
 };

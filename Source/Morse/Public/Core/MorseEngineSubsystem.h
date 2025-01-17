@@ -17,6 +17,9 @@
 #include <Topic/DDSReader.h>
 #include <Topic/DDSWriter.h>
 #include <Topic/TopicProxy.h>
+#include <Utils/MRSLogs.h>
+
+#include "Kismet/GameplayStatics.h"
 #include "QoS/DDSQoS.h"
 
 #include "MorseEngineSubsystem.generated.h"
@@ -49,7 +52,7 @@ public:
  * 
  */
 UCLASS()
-class MORSE_API UMorseEngineSubsystem : public UEngineSubsystem
+class MORSE_API UMorseEngineSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 
@@ -60,12 +63,27 @@ public:
 
     static UMorseEngineSubsystem* Get()
     {
-        if (GEngine)
+        UWorld* pWorld = (GEngine && GEngine->GameViewport) ? GEngine->GameViewport->GetWorld() : nullptr;
+
+        if (!pWorld)
         {
-            return GEngine->GetEngineSubsystem<UMorseEngineSubsystem>();
+            UE_LOGFMT(LogMorse, Error, "UMorseEngineSubsystem::Get : Impossible de recuperer une instance du World");
+            return nullptr;
         }
-        return nullptr;
-    }
+
+        UGameInstance* pGI = UGameplayStatics::GetGameInstance(pWorld);
+
+        if (!pGI)
+        {
+            UE_LOGFMT(LogMorse, Error, "UMorseEngineSubsystem : Impossible de recuperer le Game Instance");
+            return nullptr;
+        }
+
+        return pGI->GetSubsystem<UMorseEngineSubsystem>();
+    };
+
+    void OnPostWorldInit(UWorld* pWorld, const UWorld::InitializationValues);
+    
     /**
      * @brief Operation wich return the default morse participant.
      * 
@@ -73,10 +91,9 @@ public:
      */
     UFUNCTION(BlueprintPure, BlueprintCallable)
     UDDSParticipant* GetDefaultParticipant();
-
    
 private:
 
     UPROPERTY()
-    UDDSParticipant* m_DefaultParticipant; //default participant of morse, ALL the entity will be created with this participant
+    UDDSParticipant* DefaultParticipant; //default participant of morse, ALL the entity will be created with this participant
 };
