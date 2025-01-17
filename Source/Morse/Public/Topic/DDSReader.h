@@ -27,7 +27,7 @@ class MORSE_API UDDSReader : public UObject, public UDDSEntity
 	GENERATED_BODY()
 
 public:
-
+	
 	UDDSReader(const FObjectInitializer& Initializer);
 	
 	virtual void BeginDestroy() override;

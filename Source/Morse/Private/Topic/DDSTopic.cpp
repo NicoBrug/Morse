@@ -4,7 +4,7 @@
 
 UDDSTopic::UDDSTopic(const FObjectInitializer& Initializer)
 {
-    SetType(EEntityType::TOPIC);
+    SetType(EEntityType::DDS_TOPIC);
 }
 
 void UDDSTopic::Initialize()

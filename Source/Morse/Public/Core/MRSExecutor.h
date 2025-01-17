@@ -6,7 +6,7 @@
 #include "MorseEngineSubsystem.h"
 
  /**
-  * @brief TODO
+  * @brief TODO implement the executor 
   * NOT USED
   */
  class MORSE_API MRSExecutor
@@ -39,27 +39,27 @@ public:
 
             switch (Entity->GetType())
             {
-            case EEntityType::PUBLISHER:
+            case EEntityType::DDS_PUBLISHER:
                 // Traitement pour les entit�s de type Publisher
                 break;
 
-            case EEntityType::SUBSCRIBER:
+            case EEntityType::DDS_SUBSCRIBER:
                 // Traitement pour les entit�s de type Subscriber
                 break;
 
-            case EEntityType::READER:
+            case EEntityType::DDS_READER:
                 // Traitement pour les entit�s de type Reader
                 break;
 
-            case EEntityType::WRITER:
+            case EEntityType::DDS_WRITER:
                 // Traitement pour les entit�s de type Writer
                 break;
 
-            case EEntityType::READ_CONDITION:
+            case EEntityType::DDS_READ_CONDITION:
                 // Traitement pour les entit�s de type Read Condition
                 break;
 
-            case EEntityType::TOPIC:
+            case EEntityType::DDS_TOPIC:
                 // Traitement pour les entit�s de type Topic
                 break;
 

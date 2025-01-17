@@ -30,13 +30,15 @@ enum class EEntityState
 UENUM()
 enum class EEntityType
 {
-	PUBLISHER, /**< The entity is a publisher. */
-	SUBSCRIBER, /**< The entity is a subscriber. */
-	READER, /**< The entity is a reader. */
-	WRITER, /**< The entity is a writer. */
-	READ_CONDITION, /**< The entity is a read condition. */
-	TOPIC, /**< The entity is a topic. */
+	DDS_PUBLISHER, /**< The entity is a publisher. */
+	DDS_SUBSCRIBER, /**< The entity is a subscriber. */
+	DDS_READER, /**< The entity is a reader. */
+	DDS_WRITER, /**< The entity is a writer. */
+	DDS_READ_CONDITION, /**< The entity is a read condition. */
+	DDS_TOPIC, /**< The entity is a topic. */
+	DDS_DOMAIN,
 	NONE /**< The entity type is not specified. */
+	
 };
 
 /**

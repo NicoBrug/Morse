@@ -4,7 +4,7 @@
 
 UDDSWriter::UDDSWriter(const FObjectInitializer& Initializer)
 {
-	SetType(EEntityType::WRITER);
+	SetType(EEntityType::DDS_WRITER);
 }
 
 void UDDSWriter::BeginDestroy()

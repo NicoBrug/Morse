@@ -4,7 +4,7 @@
 
 UDDSReader::UDDSReader(const FObjectInitializer& Initializer)
 {
-	SetType(EEntityType::READER);
+	SetType(EEntityType::DDS_READER);
 }
 
 void UDDSReader::BeginDestroy()
