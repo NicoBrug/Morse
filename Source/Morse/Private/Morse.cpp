@@ -1,17 +1,26 @@
 #include "Morse.h"
+#include "Core/MorseSettings.h"
+#include "ISettingsModule.h"
 
 #define LOCTEXT_NAMESPACE "FMorseModule"
 
 void FMorseModule::StartupModule()
 {
-
+	if(ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
+	{
+		SettingsModule->RegisterSettings("Project", "Plugins", "DDSPluginSettings",
+			LOCTEXT("RuntimeSettingsName", "Morse"), LOCTEXT("RuntimeSettingsDescription", "Configure my setting"),
+			GetMutableDefault<UMorseSettings>());
+	};
 };
 
 void FMorseModule::ShutdownModule()
 {
-	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
-	// we call this function before unloading the module.
-}
+	if(ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
+	{
+		SettingsModule->UnregisterSettings("Project", "Plugins", "DDSPluginSettings");
+	};
+};
 
 #undef LOCTEXT_NAMESPACE
 	
