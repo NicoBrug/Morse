@@ -11,9 +11,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "TopicProxy.h"
+#include "Topic/TopicProxy.h"
 #include "ddsc/dds.h"
-#include "Participant/DDSParticipant.h"
+#include "DDS/Entity/DDSEntity.h"
+#include "DDS/Entity/DDSParticipant.h"
 #include "DDSTopic.generated.h"
 
 
@@ -42,18 +43,10 @@ public:
 		Initialize();
 	};
 
-	/**
-	 * @brief Operation for initialized the Topic. Memory allocation for the topic is made here.
-	 *  SUCCESS STATE : EEntityState::INITIALIZED
-	 *  ERROR   STATE : EEntityState::NOT_INITIALIZED
-	 */
+	//~ Begin UDDSEntity Interface.
 	virtual void Initialize() override;
-
-	/**
-	 * @brief Operation call at the destruction of the object. The memory deallocation of the topic is made here.
-	 */
-	UFUNCTION(BlueprintCallable)
 	virtual void Terminate() override;
+	//~ End UDDSEntity Interface.
 
 	/**
 	 * @brief Operation for settings the participant owner of the topic.
@@ -80,10 +73,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MRS TopicProxy")
 	UTopicProxy* GetTopicProxy()
 	{
-		if (!IsValid(Topic))
+		if (!IsValid(TopicProxy))
 			return nullptr;
 
-		return Topic;
+		return TopicProxy;
 	};
 
 	/**
@@ -94,7 +87,7 @@ public:
 	template <typename T>
 	T* GetProxy()
 	{
-		if (!IsValid(Topic))
+		if (!IsValid(TopicProxy))
 		{
 			// Log a warning if the topic is invalid.
 			UE_LOG(LogTemp, Warning, TEXT("Topic is invalid."));
@@ -102,7 +95,7 @@ public:
 		}
 
 		// Attempt to cast the topic to the specified type.
-		T* CastedTopic = Cast<T>(Topic);
+		T* CastedTopic = Cast<T>(TopicProxy);
 		if (!CastedTopic)
 		{
 			// Log an error if the cast fails.
@@ -126,7 +119,7 @@ public:
 	 * @brief Pointer to the associated TopicProxy object.
 	 */
 	UPROPERTY()
-	TObjectPtr<UTopicProxy> Topic;
+	TObjectPtr<UTopicProxy> TopicProxy;
 
 	/**
 	 * @brief Pointer to the owning DDS Participant.

@@ -1,5 +1,5 @@
 #include "API/MorseBlueprintLib.h"
-#include "Core/MorseEngineSubsystem.h"
+#include "Core/MRSSubsystem.h"
 #include "Utils/MRSLogs.h"
 
 bool UMorseLib::CreateWriterBlueprint(
@@ -44,7 +44,7 @@ bool UMorseLib::CreateReader(UObject* Owner, FTopicDescription Settings, TSubcla
         return false;
     };
 
-    UMorseEngineSubsystem* Morse = UMorseEngineSubsystem::Get();
+    UMorseSubsystem* Morse = UMorseSubsystem::Get();
 
     UDDSTopic* pTopic = NewObject<UDDSTopic>(Owner);
     if (pTopic)
@@ -80,7 +80,7 @@ bool UMorseLib::CreateWriter(UObject* Owner, FTopicDescription Settings, TSubcla
         return false;
     };
 
-    UMorseEngineSubsystem* Morse = UMorseEngineSubsystem::Get();
+    UMorseSubsystem* Morse = UMorseSubsystem::Get();
 
     UDDSTopic* pTopic = NewObject<UDDSTopic>(Owner);
 

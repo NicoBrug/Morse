@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "Core/DDSEntity.h"
+#include "DDS/Entity/DDSEntity.h"
 
 class FXmlNode;
 
@@ -13,8 +13,11 @@ class MORSE_API FDDSDomain : public UDDSEntity
 public:
 	FDDSDomain(){SetType(EEntityType::DDS_DOMAIN);};
 	~FDDSDomain(){};
+
+	//~ Begin UDDSEntity Interface.
 	virtual void Initialize() override;
 	virtual void Terminate() override;
+	//~ End UDDSEntity Interface.
 
 	dds_domainid_t GetDomainId() const;
 	

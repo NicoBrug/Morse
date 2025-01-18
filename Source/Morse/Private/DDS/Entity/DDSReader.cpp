@@ -1,4 +1,6 @@
-#include "Topic/DDSReader.h"
+#include "DDS/Entity/DDSReader.h"
+
+#include "DDS/QoS/DDSQoS.h"
 #include "Utils/MRSLogs.h"
 
 
@@ -6,18 +8,6 @@ UDDSReader::UDDSReader(const FObjectInitializer& Initializer)
 {
 	SetType(EEntityType::DDS_READER);
 }
-
-void UDDSReader::BeginDestroy()
-{
-	if(!IsEntityDestroyed())
-	{
-		Terminate();
-	};
-	
-	UE_LOG(LogMorse, Log, TEXT("Reader Terminated"));
-
-	Super::BeginDestroy();
-};
 
 void UDDSReader::Initialize()
 {
@@ -77,10 +67,44 @@ void UDDSReader::Terminate()
 	{
 		Topic->Terminate();
 	};
-
-	dds_delete(EntityHandler);
+	
+	RC_DDS_CHECK(dds_delete(EntityHandler));
 
 	SetState(EEntityState::DESTROYED);
+}
+
+void UDDSReader::DataAvailableHandler(dds_entity_t Reader, void* Arg)
+{
+	if(Reader == 0)
+		return;
+		
+	UDDSReader* ReaderInstance = static_cast<UDDSReader*>(Arg);
+	if (ReaderInstance)
+	{
+		ReaderInstance->OnDataAvailable(Reader);
+	}
+}
+
+void UDDSReader::OnDataAvailable(dds_entity_t reader)
+{
+	Read();
+	if(Topic && Topic->GetTopicProxy())
+		Topic->GetTopicProxy()->ExecuteMessageCallback();
+}
+
+UDDSTopic* UDDSReader::GetTopic()
+{
+	return Topic;
+}
+
+void UDDSReader::SetTopic(UDDSTopic* ReaderTopic)
+{
+	Topic = ReaderTopic;
+}
+
+void UDDSReader::SetParticipant(UDDSParticipant* InOwnerParticipant)
+{
+	OwnerParticipant = InOwnerParticipant;
 };
 
 void UDDSReader::Read()

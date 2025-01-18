@@ -10,7 +10,7 @@
 
 #include "CoreMinimal.h"
 #include "ddsc/dds.h"
-#include "QoS/DDSQoSDataModel.h"
+#include "DDS/QoS/DDSQoSDataModel.h"
 
 /**
  * @brief Default QoS configuration for sensors

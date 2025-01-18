@@ -8,7 +8,7 @@ Add the include for DDS Writer
 For create a DDS Writer, you need to setup the settings of the topic you want to write on. 
 The Settings is contain in a struct called FTopicDescription. 
 ```
-UMorseLib::CreateWriter(Owner, Settings, UDataProxy::StaticClass(), TopicProxy, Writer);
+UMorseLib::CreateWriter(Owner, Settings, UDataProxy::StaticClass(), Writer);
 ```
 Operation of writing the data inside the topic proxy on DDS. Before that, you can modify the data inside the topic proxy. 
 ```

@@ -10,7 +10,7 @@
 #pragma once
 
 #include "ddsc/dds.h"
-#include "QoS/DDSQoS.h"
+#include "DDS/QoS/DDSQoSDataModel.h"
 
 /**
  * @brief Enumeration for the state of an entity.
@@ -54,15 +54,11 @@ public:
 	 */
 	UDDSEntity() : State(EEntityState::NOT_INITIALIZED) {}
 
-	/**
-	 * @brief Virtual function to initialize the entity. Can be overridden by derived classes. Entity memory is allocated here (derived class).
-	 */
-	virtual void Initialize() {};
 
-	/**
-	 * @brief Virtual function to terminate the entity. Can be overridden by derived classes. Entity memory is here (derived class). 
-	 */
+	//~ Begin UDDSEntity Interface.
+	virtual void Initialize() {};
 	virtual void Terminate() {};
+	//~ End UDDSEntity Interface.
 
 	/**
 	 * @brief Get the type of the entity.

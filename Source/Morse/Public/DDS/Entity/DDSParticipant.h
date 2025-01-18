@@ -12,7 +12,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "Core/DDSEntity.h"
+#include "DDS/Entity/DDSEntity.h"
 #include "DDSParticipant.generated.h"
 
 
@@ -31,8 +31,10 @@ public :
 
 	UDDSParticipant(const FObjectInitializer& Initializer);
 
+	//~ Begin UDDSEntity Interface.
 	virtual void Initialize() override;
 	virtual void Terminate() override;
+	//~ End UDDSEntity Interface.
 
 private:
 

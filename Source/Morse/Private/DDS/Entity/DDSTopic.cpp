@@ -1,5 +1,5 @@
-#include "Topic/DDSTopic.h"
-#include "QoS/DDSQoS.h"
+#include "DDS/Entity/DDSTopic.h"
+#include "DDS/QoS/DDSQoS.h"
 #include "Utils/MRSLogs.h"
 
 UDDSTopic::UDDSTopic(const FObjectInitializer& Initializer)
@@ -15,7 +15,7 @@ void UDDSTopic::Initialize()
         return;
     }
 
-    if (!IsValid(Topic))
+    if (!IsValid(TopicProxy))
     {
         SetState(EEntityState::NOT_INITIALIZED);
         return;
@@ -28,7 +28,7 @@ void UDDSTopic::Initialize()
     EntityHandler = dds_create_topic
     (
         OwnerParticipant->GetEntity(),
-        Topic->GetTypeDesc(),
+        TopicProxy->GetTypeDesc(),
         StringCast<ANSICHAR>(*TopicName).Get(),
         Qos,
         NULL
@@ -44,7 +44,7 @@ void UDDSTopic::Initialize()
 void UDDSTopic::Terminate()
 {
     RC_DDS_CHECK(dds_delete(EntityHandler));  //DDS Check return code
-    Topic->Terminate();
+    TopicProxy->Terminate();
     SetState(EEntityState::DESTROYED);
 };
 
@@ -56,13 +56,13 @@ void UDDSTopic::SetMessageType(TSubclassOf<UTopicProxy> MsgClass)
         
         if (NewMsgObject)
         {
-            Topic = NewMsgObject;
-            Topic->Initialize();
+            TopicProxy = NewMsgObject;
+            TopicProxy->Initialize();
         }
         else
         {
             UE_LOGFMT(LogMorse, Warning, "Can't create new message base on the specified Class.");
-        }
+        };
     }
     else
     {

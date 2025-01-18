@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DeveloperSettings.h"
 #include "ddsc/dds.h"
-#include "MorseSettings.generated.h"
+#include "MRSSettings.generated.h"
 
 UENUM(BlueprintType)
 enum class EDDSVerbosity : uint8
@@ -24,7 +24,7 @@ enum class EDDSVerbosity : uint8
  * 
  */
 UCLASS(Config=Game, defaultconfig, meta = (DisplayName="DDS Settings"))
-class MORSE_API UMorseSettings : public UObject
+class MORSE_API UMRSSettings : public UObject
 {
 	GENERATED_BODY()
 

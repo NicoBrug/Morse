@@ -12,17 +12,17 @@
 #include "CoreMinimal.h"
 #include "Subsystems/EngineSubsystem.h"
 
-#include "Participant/DDSParticipant.h"
-#include <Topic/DDSTopic.h>
-#include <Topic/DDSReader.h>
-#include <Topic/DDSWriter.h>
+#include "DDS/Entity/DDSParticipant.h"
+#include <DDS/Entity/DDSTopic.h>
+#include <DDS/Entity/DDSReader.h>
+#include <DDS/Entity/DDSWriter.h>
 #include <Topic/TopicProxy.h>
 #include <Utils/MRSLogs.h>
 
 #include "Kismet/GameplayStatics.h"
-#include "QoS/DDSQoS.h"
+#include "DDS/QoS/DDSQoS.h"
 
-#include "MorseEngineSubsystem.generated.h"
+#include "MRSSubsystem.generated.h"
 
 
 USTRUCT(BlueprintType)
@@ -52,7 +52,7 @@ public:
  * 
  */
 UCLASS()
-class MORSE_API UMorseEngineSubsystem : public UGameInstanceSubsystem
+class MORSE_API UMorseSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 
@@ -61,26 +61,7 @@ public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
     virtual void Deinitialize() override;
 
-    static UMorseEngineSubsystem* Get()
-    {
-        UWorld* pWorld = (GEngine && GEngine->GameViewport) ? GEngine->GameViewport->GetWorld() : nullptr;
-
-        if (!pWorld)
-        {
-            UE_LOGFMT(LogMorse, Error, "UMorseEngineSubsystem::Get : Impossible de recuperer une instance du World");
-            return nullptr;
-        }
-
-        UGameInstance* pGI = UGameplayStatics::GetGameInstance(pWorld);
-
-        if (!pGI)
-        {
-            UE_LOGFMT(LogMorse, Error, "UMorseEngineSubsystem : Impossible de recuperer le Game Instance");
-            return nullptr;
-        }
-
-        return pGI->GetSubsystem<UMorseEngineSubsystem>();
-    };
+    static UMorseSubsystem* Get();
 
     void OnPostWorldInit(UWorld* pWorld, const UWorld::InitializationValues);
     

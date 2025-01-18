@@ -1,10 +1,10 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Participant/DDSDomain.h"
+#include "DDS/Entity/DDSDomain.h"
 
 #include "XmlFile.h"
-#include "Core/MorseSettings.h"
+#include "Core/MRSSettings.h"
 #include "Utils/MRSLogs.h"
 #include "Misc/Paths.h"
 #include "HAL/PlatformFilemanager.h"
@@ -12,7 +12,7 @@
 
 void FDDSDomain::Initialize()
 {
-	UMorseSettings* Settings = GetMutableDefault<UMorseSettings>();
+	UMRSSettings* Settings = GetMutableDefault<UMRSSettings>();
 
 	dds_domainid_t DomainId = Settings->DomainId;
 	bool UseConfigurationFile = Settings->OverrideDDSXmlConf;
@@ -54,7 +54,7 @@ dds_domainid_t FDDSDomain::GetDomainId() const
 
 bool FDDSDomain::LoadXmlDomainConfig(FString Path, FString& OutXml)
 {
-	UMorseSettings* Settings = GetMutableDefault<UMorseSettings>();
+	UMRSSettings* Settings = GetMutableDefault<UMRSSettings>();
 
 	if (!FPaths::FileExists(Path))
 	{

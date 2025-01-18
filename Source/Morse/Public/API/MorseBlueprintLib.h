@@ -1,6 +1,6 @@
 /*****************************************************************
- * @file   RosBlueprintFunctionLibrary.h
- * @brief  C++ and Blueprint API for simplify the creation of Publisher and Subscriber
+ * @file   MorseBlueprintLib.h
+ * @brief  C++ and BP API of Morse.
  * 
  * @author nicol
  * @date   January 2024

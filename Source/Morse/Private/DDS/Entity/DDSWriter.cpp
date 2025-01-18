@@ -1,21 +1,14 @@
-#include "Topic/DDSWriter.h"
+#include "DDS/Entity/DDSWriter.h"
 #include <Utils/MRSLogs.h>
+#include "DDS/Entity/DDSTopic.h"
+
+#include "DDS/QoS/DDSQoS.h"
 
 
 UDDSWriter::UDDSWriter(const FObjectInitializer& Initializer)
 {
 	SetType(EEntityType::DDS_WRITER);
-}
-
-void UDDSWriter::BeginDestroy()
-{
-	if(!IsEntityDestroyed())
-	{
-		Terminate();
-	}
-		
-	Super::BeginDestroy();
-}
+};
 
 void UDDSWriter::Initialize()
 {
@@ -63,6 +56,21 @@ void UDDSWriter::Terminate()
 	RC_DDS_CHECK(dds_delete(EntityHandler));
 
 	SetState(EEntityState::DESTROYED);
+}
+
+UDDSTopic* UDDSWriter::GetTopic()
+{
+	return Topic;
+}
+
+void UDDSWriter::SetTopic(UDDSTopic* WriterTopic)
+{
+	Topic = WriterTopic;
+}
+
+void UDDSWriter::SetParticipant(UDDSParticipant* InOwnerParticipant)
+{
+	OwnerParticipant = InOwnerParticipant;
 };
 
 void UDDSWriter::Write()

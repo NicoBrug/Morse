@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Core/DDSEntity.h"
-#include "Participant/DDSParticipant.h"
+#include "DDS/Entity/DDSEntity.h"
+#include "DDS/Entity/DDSParticipant.h"
 
-#include "MorseEngineSubsystem.h"
+#include "MRSSubsystem.h"
 
  /**
   * @brief TODO implement the executor 
@@ -25,7 +25,7 @@ public:
 
     void Fini()
     {
-        UMorseEngineSubsystem* MorseSubsystem = UMorseEngineSubsystem::Get();
+        UMorseSubsystem* MorseSubsystem = UMorseSubsystem::Get();
 
     };
 

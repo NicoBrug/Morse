@@ -1,5 +1,5 @@
 #include "Morse.h"
-#include "Core/MorseSettings.h"
+#include "Core/MRSSettings.h"
 #include "ISettingsModule.h"
 
 #define LOCTEXT_NAMESPACE "FMorseModule"
@@ -10,7 +10,7 @@ void FMorseModule::StartupModule()
 	{
 		SettingsModule->RegisterSettings("Project", "Plugins", "DDSPluginSettings",
 			LOCTEXT("RuntimeSettingsName", "Morse"), LOCTEXT("RuntimeSettingsDescription", "Configure my setting"),
-			GetMutableDefault<UMorseSettings>());
+			GetMutableDefault<UMRSSettings>());
 	};
 };
 

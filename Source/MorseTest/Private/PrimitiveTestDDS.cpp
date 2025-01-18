@@ -1,11 +1,12 @@
 ﻿#include "PrimitiveTestDDS.h"
 #include "ROSPrimitives.h"
-#include "Topic/DDSWriter.h"
-#include "Topic/DDSReader.h"
-#include "Topic/DDSTopic.h"
+#include "DDS/Entity/DDSWriter.h"
+#include "DDS/Entity/DDSReader.h"
+#include "DDS/Entity/DDSTopic.h"
 #include "API/MorseBlueprintLib.h"
-#include "Core/MorseEngineSubsystem.h"
+#include "Core/MRSSubsystem.h"
 #include "Misc/AutomationTest.h"
+#include "Tests/AutomationCommon.h"
 
 // Define macros for expected values
 #define RESULT_PRIMITIVE_BOOL         true
@@ -31,13 +32,32 @@ UDDSWriter* Writer = nullptr;
 UPrimitives_TopicProxy* TopicProxyReader = nullptr;
 UTopicProxy* TopicProxyBaseReader = nullptr;
 UDDSReader* Reader = nullptr;
+
+UWorld* World;
 END_DEFINE_SPEC(IDLPrimitiveSpec)
+
+static UWorld* GetWorld()
+{
+	if (GEngine)
+	{
+		if (FWorldContext* WorldContext = GEngine->GetWorldContextFromPIEInstance(0))
+		{
+			return WorldContext->World();
+		}
+	}
+	return nullptr;
+}
 
 void IDLPrimitiveSpec::Define()
 {
 	BeforeEach([this]
 	{
-		 FQoSInfo QOS_TIME = FQoSInfo{
+		AutomationOpenMap("/Engine/Maps/Entry");
+		
+		World = GetWorld();
+		TestNotNull("Check if World is properly created", World);
+		
+		FQoSInfo QOS_TIME = FQoSInfo{
          FQoSDurability{EQosDurability::VOLATILE, 1},                     
          FQoSHistory{EQosHistory::KEEP_ALL, 0},                          
          FQoSReliability{EQosReliability::RELIABLE, 0},               
@@ -87,16 +107,6 @@ void IDLPrimitiveSpec::Define()
 		if(Reader)
 		 	Reader->Terminate();
 	});
-	
-
-	It("Read Bool", EAsyncExecution::TaskGraphMainThread, [this]()
-	{
-		Reader->Read();
-		FROSPrimitives DataRead;
-		TopicProxyReader->GetData(DataRead);
-
-		TestEqual("BoolValue should match", DataRead.BoolValue, RESULT_PRIMITIVE_BOOL);
-	});
 
 	It("Read Byte", EAsyncExecution::TaskGraphMainThread, [this]()
 	{
@@ -107,6 +117,15 @@ void IDLPrimitiveSpec::Define()
 		TestEqual("ByteValue should match", DataRead.ByteValue, RESULT_PRIMITIVE_BYTEVALUE);
 	});
 
+	It("Read Bool", EAsyncExecution::TaskGraphMainThread, [this]()
+	{
+		Reader->Read();
+		FROSPrimitives DataRead;
+		TopicProxyReader->GetData(DataRead);
+
+		TestEqual("BoolValue should match", DataRead.BoolValue, RESULT_PRIMITIVE_BOOL);
+	});
+	
 	It("Read Float32", EAsyncExecution::TaskGraphMainThread, [this]()
 	{
 		Reader->Read();

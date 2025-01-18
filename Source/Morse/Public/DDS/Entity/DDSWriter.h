@@ -11,8 +11,9 @@
 
 #include "CoreMinimal.h"
 #include "ddsc/dds.h"
-#include "Topic/DDSTopic.h"
-#include "Participant/DDSParticipant.h"
+#include "DDS/Entity/DDSEntity.h"
+#include "DDS/Entity/DDSParticipant.h"
+#include "DDS/Entity/DDSTopic.h"
 
 #include "DDSWriter.generated.h"
 
@@ -28,29 +29,9 @@ class MORSE_API UDDSWriter : public UObject, public UDDSEntity
 	GENERATED_BODY()
 
 public:
-	/**
-	 * @brief Constructs a new UDDSWriter object.
-	 *
-	 * This function initializes the UDDSWriter with the given object initializer
-	 * and sets the entity type to WRITER.
-	 *
-	 * @param Initializer An object of FObjectInitializer used to initialize the writer.
-	 * @return A new instance of UDDSWriter.
-	 */
+
 	UDDSWriter(const FObjectInitializer& Initializer);
-
-	/**
-	 * @brief Handles the destruction process for the UDDSWriter object.
-	 *
-	 * This override method ensures that proper cleanup is performed before the
-	 * UDDSWriter object is destroyed. It calls the Fini method to finalize any
-	 * ongoing DDS processes and then invokes the parent class's BeginDestroy method.
-	 *
-	 * The Fini method handles the cleanup of the m_WriterTopic member and deletion
-	 * of the DDS entity associated with the writer.
-	 */
-	virtual void BeginDestroy() override;
-
+	
 	/**
 	 * Initializes the writer.
 	 */
@@ -61,36 +42,13 @@ public:
 		Initialize();
 	};
 
-	/**
-	 * Initializes the UDDSWriter instance.
-	 *
-	 * This method sets up the DDS writer entity with the specified quality of service (QoS)
-	 * and associates it with the corresponding participant and topic entities. It verifies
-	 * the validity of the participant and topic before proceeding with the creation of the
-	 * writer entity. Upon successful initialization, the status mask for publication-matched
-	 * events is set, and the state of the writer is updated to `INITIALIZED`.
-	 *
-	 * Preconditions:
-	 * - The owner participant (`m_OwnerParticipant`) must be valid.
-	 * - The writer topic (`m_WriterTopic`) must be valid.
-	 *
-	 * Error Handling:
-	 * - The method uses `RC_DDS_CHECK` macro to log any errors that occur during the
-	 *   DDS entity creation.
-	 */
+	//~ Begin UDDSEntity Interface.
 	virtual void Initialize() override;
-
-	/**
-	 * @brief Clear any DDS Entity Holding by the Writer
-	 */
-	UFUNCTION(BlueprintCallable)
 	virtual void Terminate() override;
+	//~ End UDDSEntity Interface.
 
 	UFUNCTION(BlueprintCallable, Category = "Topics")
-	UDDSTopic* GetTopic()
-	{
-		return Topic;
-	};
+	UDDSTopic* GetTopic();
 
 	template <typename T>
 	T* GetTopicProxy()
@@ -102,16 +60,10 @@ public:
 	};
 	
 	UFUNCTION(BlueprintCallable, Category = "Topics")
-	void SetTopic(UDDSTopic* WriterTopic)
-	{
-		Topic = WriterTopic;
-	};
+	void SetTopic(UDDSTopic* WriterTopic);
 	
 	UFUNCTION(BlueprintCallable, Category = "Topics")
-	void SetParticipant(UDDSParticipant* InOwnerParticipant)
-	{
-		OwnerParticipant = InOwnerParticipant;
-	};
+	void SetParticipant(UDDSParticipant* InOwnerParticipant);
 	
 	UFUNCTION(BlueprintCallable, Category = "Topics")
 	void Write();

@@ -13,8 +13,9 @@
 #include "UObject/NoExportTypes.h"
 #include "ddsc/dds.h"
 
-#include "Topic/DDSTopic.h"
-#include "Participant/DDSParticipant.h"
+#include "DDS/Entity/DDSEntity.h"
+#include "DDS/Entity/DDSParticipant.h"
+#include "DDS/Entity/DDSTopic.h"
 
 #include "DDSReader.generated.h"
 
@@ -30,8 +31,6 @@ public:
 	
 	UDDSReader(const FObjectInitializer& Initializer);
 	
-	virtual void BeginDestroy() override;
-
 	UFUNCTION(BlueprintCallable)
 	void Initialize(UDDSParticipant* InOwnerParticipant)
 	{
@@ -39,35 +38,18 @@ public:
 		Initialize();
 	};
 
+	//~ Begin UDDSEntity Interface.
 	virtual void Initialize() override;
 	virtual void Terminate() override;
-	
-	// Define a static callback function
-	static void DataAvailableHandler(dds_entity_t Reader, void* Arg)
-	{
-		if(Reader == 0)
-			return;
-		
-		UDDSReader* ReaderInstance = static_cast<UDDSReader*>(Arg);
-		if (ReaderInstance)
-		{
-			ReaderInstance->OnDataAvailable(Reader);
-		}
-	}
+	//~ End UDDSEntity Interface.
 
-	// Non-static member function to handle data
-	void OnDataAvailable(dds_entity_t reader)
-	{
-		Read();
-		if(Topic && Topic->GetTopicProxy())
-			Topic->GetTopicProxy()->ExecuteMessageCallback();
-	};
+	static void DataAvailableHandler(dds_entity_t Reader, void* Arg);
+
+	// Non-static function to handle data
+	void OnDataAvailable(dds_entity_t reader);
 
 	UFUNCTION(BlueprintCallable, Category = "Topics")
-	UDDSTopic* GetTopic()
-	{
-		return Topic;
-	};
+	UDDSTopic* GetTopic();
 
 	template <typename T>
 	T* GetTopicProxy()
@@ -86,10 +68,7 @@ public:
 	 *
 	 * @param ReaderTopic Pointer to the UDDSTopic object to be associated with the reader.
 	 */
-	void SetTopic(UDDSTopic* ReaderTopic)
-	{
-		Topic = ReaderTopic;
-	};
+	void SetTopic(UDDSTopic* ReaderTopic);
 
 	/**
 	 * @brief Sets the DDS participant for this reader.
@@ -99,10 +78,7 @@ public:
 	 *
 	 * @param OwnerParticipant A pointer to the UDDSParticipant instance that will own this reader.
 	 */
-	void SetParticipant(UDDSParticipant* InOwnerParticipant)
-	{
-		OwnerParticipant = InOwnerParticipant;
-	};
+	void SetParticipant(UDDSParticipant* InOwnerParticipant);
 
 	/**
 	 * @brief Reads data from the DDS (Data Distribution Service) topic.
