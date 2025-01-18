@@ -190,11 +190,10 @@ A simulation layer, specifically for sensor simulation and frame synchronization
 Therefore, this example adn the robotic simulation is not included in the plugin; it serves as an illustration of what is possible to achieve.
 
 This example was created on Windows 11 with:
-
-    ROS Humble Version
-    Unreal Engine 5.4
-    Morse alpha
-    Morse ROS Data Model
+*  ROS Humble Version
+* Unreal Engine 5.4
+* Morse
+* Morse ROS Data Model
 
 This example demonstrates the synchronization of an Unreal environment, containing two simulated LIDARs, and the synchronization of the Unreal mannequin with Rviz2.
 
