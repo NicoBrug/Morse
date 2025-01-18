@@ -55,6 +55,15 @@ Rebuild you're solution.
 If you want to see the website documentation : [Link]
 
 ### Morse Settings
+The following parameters can be configured in the project configuration file. You can adjust them via the `DefaultGame.ini` file or within the Unreal Engine Editor.
+
+| Parameter                | Type                | Description                                                                 | Default Value              |
+|--------------------------|---------------------|-----------------------------------------------------------------------------|----------------------------|
+| **DDSDomainConfigPath**   | `FString`           | Path to the DDS configuration file.                                          | `"C:/path/to/dds/config.xml"` |
+| **OverrideDDSXmlConf**    | `bool`              | Determines whether the DDS XML configuration should be overridden.            | `true`                     |
+| **DomainId**              | `int`               | The DDS domain ID to use.                                                   | `DDS_DOMAIN_DEFAULT`       |
+| **LogsVerbosity**         | `EDDSVerbosity`     | The verbosity level of logs for DDS. Activated only if `OverrideDDSXmlConf` is `true`. | `Info`                     |
+|                          |                     | Options available: `None`, `Error`, `Warning`, `Info`, `Debug`, `Trace`.    |                            |
 
 ### Blueprint API Reference
 
