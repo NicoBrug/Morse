@@ -1,1 +1,146 @@
-"# Morse" 
+<h1 align="center">MORSE</h1>
+
+⭐ Star on GitHub — it motivates a lot!
+
+[![Share](https://img.shields.io/badge/share-000000?logo=x&logoColor=white)](https://x.com/intent/tweet?text=Check%20out%20this%20cool%20project%20on%20GitHub!%20https://github.com/NicoBrug/Morse%20%23UnrealEngine%20%23DDS%20%23Standarts)
+[![Share](https://img.shields.io/badge/share-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/NicoBrug/Morse)
+
+## Table of Contents
+- [About](#-about)
+- [Installation](#-installation)
+- [Documentation](#-documentation)
+- - [Settings](#morse-settings)
+- - [Blueprint API Reference](#blueprint-api-reference)
+- - [C++ API Reference](#c-api-reference)
+- [Contact](#-contact)
+
+## 🚀 About
+
+Morse is an Unreal Engine plugin who act has a Middleware.It includes a Data Distribution Service (DDS) who was an industry standart defined by the OMG.
+Morse simplifies data sharing across distributed systems and can, among other things, connect to frameworks that are also based on DDS middleware, such as the ROS robotics development framework.
+
+More plugins are in development, particularly for robotic simulation and synchronization with ROS.
+
+See the standards specification :
+- **DDS Specification**: https://www.omg.org/omg-dds-portal/
+- **IDL Specification**: https://www.omg.org/spec/IDL/4.2/About-IDL
+
+
+Additionals plugins :
+- ROS Data Model : https://github.com/NicoBrug/MorseROSDataModel
+- Simulation : --
+
+## ✅ Installation
+
+Morse has no direct dependencies on ROS and is built on the CycloneDDS implementation of DDS.
+To install Morse in a project, simply download the plugin and add it to the project's plugins folder.
+
+Download Zip on the repo and put it in you're Plugins Folder
+
+OR 
+
+Go to : YoureProject/Plugins
+```
+git clone https://github.com/NicoBrug/Morse.git
+```
+
+Rebuild you're solution.
+
+## 📚 Documentation
+
+If you want to see the website documentation : [Link]
+
+### Morse Settings
+
+### Blueprint API Reference
+
+All the blueprint API is accessibles type "morse" in the blueprint actions.
+
+![alt text](Resources/BP_API.png)
+
+#### DDS Writer Graph Nodes
+This section describes the process of creating a Writer object, which manages the actions of writing data to the Data Distribution Service (DDS). The data type is specified as an input parameter to the function (DataType). The Settings parameter includes the Quality of Service (QoS) settings and the name of the topic on which the data will be published.
+
+
+![alt text](Resources/Writer_BP_Node.png)
+
+To send data using the Writer object, you need to set the data on your data proxy. Once the data is configured, you can invoke the Write function within the Writer to publish the data to the specified topic.
+
+![alt text](Resources/Writer_BP_Graph_Nodes.png)
+
+#### DDS Reader Graph Nodes
+This section describes the process of creating a Reader object, which manages the actions of reading data from the Data Distribution Service (DDS). The data type to be read is specified as an input parameter to the function (DataType). The Settings parameter includes the Quality of Service (QoS) settings and the name of the topic from which we want to receive data.
+
+![alt text](Resources/Reader_BP_Node.png)
+
+To retrieve data from DDS, you have two options:
+
+* Bind a Delegate: You can bind a delegate that is triggered when data becomes available on the topic. This approach treats the Reader object as a subscriber, allowing you to react to incoming data in real-time.
+
+* Manual Retrieval: Alternatively, you can manually retrieve the data by calling the Read function on the Reader object. After executing this function, you can access the data within the data proxy.
+
+
+![alt text](Resources/Reader_BP_Graph_Nodes.png)
+
+#### DDS Quality Of Service Settings
+
+![alt text](Resources/QoS_BP_Settings.png)
+
+### C++ API Reference
+#### Write Data on DDS
+Add the include for DDS Writer
+```
+#include "Topic/DDSWriter.h" 
+```
+For create a DDS Writer, you need to setup the settings of the topic you want to write on.
+The Settings is contain in a struct called FTopicDescription.
+```
+UMorseLib::CreateWriter(Owner, Settings, UDataProxy::StaticClass(), Writer);
+```
+Operation of writing the data inside the topic proxy on DDS. Before that, you can modify the data inside the topic proxy.
+```
+Writer->Write();
+```
+
+#### Read
+Add the include for DDS Reader
+```
+#include "Topic/DDSReader.h" 
+```
+Create Reader
+```
+UMorseLib::CreateReader(this, Settings, UDataProxy::StaticClass(), TopicProxy, Reader);
+```
+Operation of reading on DDS. The read are goind to get the data on DDS and set up inside the topic proxy object. The updated data is acessible after this operation.
+```
+Reader->Read();
+```
+
+#### Configure QOS
+Add the include for the topic
+```
+#include "Topic/DDSTopic.h" 
+```
+Define a custom and reusable QOS.
+```
+inline FQoSInfo QOS_TIME = FQoSInfo{
+    FQoSDurability{EQosDurability::VOLATILE, 1},						// Volatile data
+    FQoSHistory{EQosHistory::KEEP_ALL, 0},							    // Keep all samples
+    FQoSReliability{EQosReliability::BEST_EFFORT, 0},		            // No blocking
+    FQoSLiveness{EQosLiveness::MANUAL_BY_TOPIC, 1000000000},	        // 1 second lease duration
+    FQoSOwnership{EQosOwnership::SYSTEM_DEFAULT, 1},
+    FQoSConsistency{EQosConsistency::SYSTEM_DEFAULT,false, false,false,false}
+};
+
+FTopicDescription Settings;
+Settings.SetName("rt/clock");
+Settings.SetQualityOfService(QOS_TIME);
+```
+
+## 📫 Contact
+
+If you have any questions, feedback, or inquiries about this project, feel free to reach out via the following methods:
+
+- **Email**: [nicolasbrugie@gmail.com](mailto:nicolasbrugie@gmail.com)
+- **LinkedIn**: [Brugie Nicolas](https://www.linkedin.com/in/your-profile/)
+- **GitHub Issues**: [Open an Issue](https://github.com/NicoBrug/Morse/issues)
