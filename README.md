@@ -12,6 +12,7 @@
 - - [Settings](#morse-settings)
 - - [Blueprint API Reference](#blueprint-api-reference)
 - - [C++ API Reference](#c-api-reference)
+- [Exemples](#-exemples)
 - [Contact](#-contact)
 
 ## 🚀 About
@@ -28,7 +29,7 @@ See the standards specification :
 
 Additionals plugins :
 - ROS Data Model : https://github.com/NicoBrug/MorseROSDataModel
-- Simulation : --
+- Simulation : 🔜
 
 ## ✅ Installation
 
@@ -136,6 +137,27 @@ FTopicDescription Settings;
 Settings.SetName("rt/clock");
 Settings.SetQualityOfService(QOS_TIME);
 ```
+
+## 🔨 Exemples
+Here are some examples of using Morse for robotic system simulation with native connection to ROS.
+This example was built using the ROS Data Model plugin (MorseRosDataModel).
+A simulation layer, specifically for sensor simulation and frame synchronization, has been implemented in a separate plugin.
+Therefore, this example adn the robotic simulation is not included in the plugin; it serves as an illustration of what is possible to achieve.
+
+This example was created on Windows 11 with:
+
+    ROS Humble Version
+    Unreal Engine 5.4
+    Morse alpha
+    Morse ROS Data Model
+
+This example demonstrates the synchronization of an Unreal environment, containing two simulated LIDARs, and the synchronization of the Unreal mannequin with Rviz2.
+
+Unreal Engine Environment
+![alt text](Resources/ExempleROSUnreal.png)
+Rviz2 : Time, Frames, Lidar synchronisation
+![alt text](Resources/ExempleROSRviz.png)
+![alt text](Resources/ExempleROSFrames.png)
 
 ## 📫 Contact
 
