@@ -17,10 +17,10 @@
 
 ## 🚀 About
 
-Morse is an Unreal Engine plugin who act has a Middleware.It includes a Data Distribution Service (DDS) who was an industry standart defined by the OMG.
-Morse simplifies data sharing across distributed systems and can, among other things, connect to frameworks that are also based on DDS middleware, such as the ROS robotics development framework.
+Morse is an Unreal Engine plugin designed for creating distributed simulation systems. It is built on the industrial standard [DDS (Data Distribution Service)](https://www.omg.org/spec/DDS/) for synchronizing data across networks.  
+Morse simplifies data sharing within distributed systems and can, among other capabilities, integrate with frameworks that also utilize DDS middleware, such as the [ROS](https://www.ros.org/) robotics development framework.
 
-More plugins are in development, particularly for robotic simulation and synchronization with ROS.
+Additional plugins are under development, particularly for robotic simulation and synchronization with ROS.
 
 See the standards specification :
 - **DDS Specification**: https://www.omg.org/omg-dds-portal/
@@ -30,6 +30,7 @@ See the standards specification :
 Additionals plugins :
 - ROS Data Model : https://github.com/NicoBrug/MorseROSDataModel
 - Simulation : 🔜
+
 
 ## ✅ Installation
 
