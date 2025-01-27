@@ -189,7 +189,7 @@ This example was built using the ROS Data Model plugin (MorseRosDataModel).
 A simulation layer, specifically for sensor simulation and frame synchronization, has been implemented in a separate plugin.
 Therefore, this example adn the robotic simulation is not included in the plugin; it serves as an illustration of what is possible to achieve.
 
-This example was created on Windows 11 with:
+This example was realised on Windows 11 with:
 *  ROS Humble Version
 * Unreal Engine 5.4
 * Morse
