@@ -208,5 +208,5 @@ Rviz2 : Time, Frames, Lidar synchronisation
 If you have any questions, feedback, or inquiries about this project, feel free to reach out via the following methods:
 
 - **Email**: [nicolasbrugie@gmail.com](mailto:nicolasbrugie@gmail.com)
-- **LinkedIn**: [Brugie Nicolas](https://www.linkedin.com/in/your-profile/)
+- **LinkedIn**: [Brugie Nicolas](https://www.linkedin.com/in/nicolas-brugie/)
 - **GitHub Issues**: [Open an Issue](https://github.com/NicoBrug/Morse/issues)
