@@ -44,6 +44,67 @@ public :
 	 * @param outString The resulting FString.
 	 */
 	static void DDSStringToUE(const char* inString, FString& outString) {
-		outString = FString(inString);
+		if (inString) {
+			outString = FString(StringCast<TCHAR>(inString));
+		} else {
+			outString.Empty(); // Handle null input gracefully
+		}
 	};
+
+	
+
+	template<typename TSequence, typename T>
+	static void SequenceToTArray(const TSequence* InSequence, TArray<T>& OutArray, const int Size)
+	{
+		OutArray.SetNum(Size);
+		for (auto i = 0; i < Size; ++i)
+		{
+			if constexpr (TIsArithmetic<T>::Value)
+			{
+				OutArray[i] = InSequence[i];
+			}
+			else
+			{
+				OutArray[i].DDSToUE(InSequence[i]);
+			}
+		}
+	}
+
+
+	template<typename TSequence, typename T>
+	static void TArrayToSequence(TArray<T>& InArray, TSequence* OutSequence, const int Size) //need const ?? const TArray<T>& InArray
+	{
+		for (auto i = 0; i < Size; ++i)
+		{
+			if constexpr (TIsArithmetic<T>::Value)
+			{
+				OutSequence[i] = InArray[i];
+			}
+			else
+			{
+				InArray[i].UEToDDS(OutSequence[i]);
+			}
+		}
+	}
+
+
+	template<typename TSequence, typename T>
+	static void StrSequenceToTArray(const TSequence* InSequence, TArray<T>& OutArray, const int Size) //need const ?? const TArray<T>& InArray
+	{
+		OutArray.Empty();
+		for (int i = 0; i < Size  ; ++i) {
+			FString OutString;
+			const char* InString = InSequence[i];
+			DDSStringToUE(InString, OutString);
+			OutArray.Add(OutString);
+		};
+	}
+
+	template<typename TSequence, typename T>
+	static void StrTArrayToSequence(TArray<T>& InArray, TSequence* OutSequence, const int Size) //need const ?? const TArray<T>& InArray
+	{
+		for (int i = 0; i < Size; ++i) {
+			UEStringToDDS(InArray[i], OutSequence[i]);
+		}
+	}
 };
