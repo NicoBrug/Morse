@@ -15,7 +15,7 @@
 #include "Topic/TopicProxy.h"
 #include "Utils/MRSConvertUtils.h"
 
-#include "ROSPrimitives.generated.h" 
+#include "IDLPrimitives.generated.h" 
 
 
 
@@ -29,7 +29,7 @@
   * @{
   */
 USTRUCT(Blueprintable)
-struct FROSPrimitives
+struct FIDLPrimitives
 {
     GENERATED_BODY()
 
@@ -37,7 +37,7 @@ public:
     /**
     * @cond
     */
-    FROSPrimitives()
+    FIDLPrimitives()
     {
 
     };
@@ -132,7 +132,7 @@ public:
 
 
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FROSPrimitivesCallback, const FROSPrimitives, Data);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FROSPrimitivesCallback, const FIDLPrimitives, Data);
 
 UCLASS(BlueprintType, Blueprintable)
 class MORSETEST_API UPrimitives_TopicProxy : public UTopicProxy
@@ -153,20 +153,20 @@ public:
     };
 
     UFUNCTION(BlueprintCallable)
-    void GetData(FROSPrimitives& Output)
+    void GetData(FIDLPrimitives& Output)
     {
         Output.DDSToUE(*Data);
     };
 
     UFUNCTION(BlueprintCallable)
-    void SetData(FROSPrimitives Input)
+    void SetData(FIDLPrimitives Input)
     {
         Input.UEToDDS(*Data);
     };
 
     virtual void ExecuteMessageCallback() override
     {
-        FROSPrimitives NewData;
+        FIDLPrimitives NewData;
         NewData.DDSToUE(*Data);
         OnDataChanged.Broadcast(NewData);
     };
