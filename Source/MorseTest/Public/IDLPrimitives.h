@@ -37,10 +37,40 @@ public:
     /**
     * @cond
     */
-    FIDLPrimitives()
-    {
+    // Constructeur par défaut
+    FIDLPrimitives(){}
 
-    };
+    FIDLPrimitives(
+        bool InBoolValue,
+        char InByteValue,
+        char InCharValue,
+        float InFloat32Value,
+        double InFloat64Value,
+        int8 InInt8Value,
+        uint8 InUInt8Value,
+        int16 InInt16Value,
+        uint16 InUInt16Value,
+        int32 InInt32Value,
+        uint32 InUInt32Value,
+        int64 InInt64Value,
+        uint64 InUInt64Value,
+        const FString& InStringValue)
+        : BoolValue(InBoolValue),
+          ByteValue(InByteValue),
+          CharValue(InCharValue),
+          Float32Value(InFloat32Value),
+          Float64Value(InFloat64Value),
+          Int8Value(InInt8Value),
+          Uint8Value(InUInt8Value),
+          Int16Value(InInt16Value),
+          Uint16Value(InUInt16Value),
+          Int32Value(InInt32Value),
+          Uint32Value(InUInt32Value),
+          Int64Value(InInt64Value),
+          Uint64Value(InUInt64Value),
+          StringValue(InStringValue)
+    {
+    }
     /**
      * @endcond
      */
@@ -61,7 +91,7 @@ public:
     
     char Int8Value;
     
-    char Uint8Value;
+    uint8 Uint8Value;
     
     UPROPERTY(EditAnywhere)
     int16 Int16Value;
