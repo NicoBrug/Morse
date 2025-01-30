@@ -1,4 +1,4 @@
-<h1 align="center">MORSE</h1>
+<h1 align="left">MORSE - A distributed simulation framework for Unreal Engine</h1>
 
 ⭐ Star on GitHub — it motivates a lot!
 
