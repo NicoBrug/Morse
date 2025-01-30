@@ -17,21 +17,33 @@
 
 ## 🚀 About
 
-Morse is an Unreal Engine plugin designed for creating distributed simulation systems. It is built on the industrial standard [DDS (Data Distribution Service)](https://www.omg.org/spec/DDS/) for synchronizing data across networks.  
-Morse simplifies data sharing within distributed systems and can, among other capabilities, integrate with frameworks that also utilize DDS middleware, such as the [ROS](https://www.ros.org/) robotics development framework.
+Morse is a framework designed for building simulation software and integrating Unreal Engine into distributed  environments. It provides a structured implementation approach that allows you to:
+- Integrate interfaces and data models defined by the [IDL (Interface Definition Language)](https://www.omg.org/spec/IDL/4.2/About-IDL) standard directly into Unreal Engine, making them accessible in both Blueprints and C++.
+- Communicate with external systems using the [DDS (Data Distribution Service)](https://www.omg.org/spec/DDS/) through a Blueprint and C++ API.
 
-Additional plugins are under development, particularly for robotic simulation and synchronization with ROS.
+A practical example of Morse, is the integration of the ROS data model to synchronize data between the ROS framework and an Unreal Engine application. This ROS data model has been added as a dedicated module within Morse (see Exemple).
+
+### Morse Framework Component : 
+- [Morse Core - This repo](https://github.com/NicoBrug/Morse) : Contains the core of Morse, including the middleware and APIs.
+- [ROS Data Model - GitHub](https://github.com/NicoBrug/MorseROSDataModel) : A plugin that implements the ROS data model for Morse.
+- IDL to Unreal Translator 🔜 : A plugin that enables the automatic integration of IDL files into Unreal Engine. 
+- Robotic Simulation 🔜 : A plugin that provides a robotics simulation layer within Unreal Engine.
+
+Morse is built on [Cyclone DDS](https://cyclonedds.io/) and does not introduce any additional external dependencies.
+
+### Future Development :
+Additional plugins, such as the IDL to Unreal Translator and Robotic Simulation, are currently in development. Stay tuned! 
+
+### Standart & References : 
 
 See the standards specification :
 - **DDS Specification**: https://www.omg.org/omg-dds-portal/
 - **IDL Specification**: https://www.omg.org/spec/IDL/4.2/About-IDL
+- **Cyclone DDS**: https://cyclonedds.io/
 
-
-Additionals Framework plugins :
-- ROS Data Model : https://github.com/NicoBrug/MorseROSDataModel
-- IDL to Unreal Translator : 🔜
-- Robotic Simulation : 🔜
-
+### Supported Platforms :  
+![Windows](https://img.shields.io/badge/Windows-Supported-blue?logo=windows)  
+![Linux](https://img.shields.io/badge/Linux-In_Progress-orange?logo=linux)
 
 ## ✅ Installation
 
