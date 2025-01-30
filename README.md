@@ -1,8 +1,6 @@
 <h1 align="center">MORSE</h1>
 <h3 align="center">A Distributed Simulation Framework for Unreal Engine</h3>
 
-⭐ Star on GitHub — it motivates a lot!
-
 [![Share](https://img.shields.io/badge/share-000000?logo=x&logoColor=white)](https://x.com/intent/tweet?text=Check%20out%20this%20cool%20project%20on%20GitHub!%20https://github.com/NicoBrug/Morse%20%23UnrealEngine%20%23DDS%20%23Standarts)
 [![Share](https://img.shields.io/badge/share-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/NicoBrug/Morse)
 
