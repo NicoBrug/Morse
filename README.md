@@ -1,5 +1,5 @@
 <h1 align="left">MORSE</h1>
-A distributed simulation framework for Unreal Engine
+<h3 align="center">A Distributed Simulation Framework for Unreal Engine</h3>
 
 ⭐ Star on GitHub — it motivates a lot!
 
