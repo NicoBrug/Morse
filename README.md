@@ -29,7 +29,7 @@ See the standards specification :
 - **IDL Specification**: https://www.omg.org/spec/IDL/4.2/About-IDL
 
 
-Additionals plugins :
+Additionals Framework plugins :
 - ROS Data Model : https://github.com/NicoBrug/MorseROSDataModel
 - IDL to Unreal Translator : 🔜
 - Robotic Simulation : 🔜
