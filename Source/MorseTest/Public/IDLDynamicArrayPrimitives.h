@@ -110,8 +110,8 @@ public:
         UMRSConvertUtils::SequenceToTArray<uint16, uint16>(InData.uint16_values._buffer, Uint16Values, InData.uint16_values._length);
         UMRSConvertUtils::SequenceToTArray<int32, int32>(InData.int32_values._buffer, Int32Values, InData.int32_values._length);
         UMRSConvertUtils::SequenceToTArray<uint32, unsigned int>(InData.uint32_values._buffer, Uint32Values, InData.uint32_values._length);
-        UMRSConvertUtils::SequenceToTArray<int64, int64>(InData.int64_values._buffer, Int64Values, InData.int64_values._length);
-        UMRSConvertUtils::SequenceToTArray<uint64, uint64>(InData.uint64_values._buffer, Uint64Values, InData.uint64_values._length);
+        UMRSConvertUtils::SequenceToTArray<int64_t, int64>(InData.int64_values._buffer, Int64Values, InData.int64_values._length);
+        UMRSConvertUtils::SequenceToTArray<uint64_t, uint64>(InData.uint64_values._buffer, Uint64Values, InData.uint64_values._length);
         UMRSConvertUtils::StrSequenceToTArray<char*, FString>(InData.string_values._buffer, StringValues, InData.string_values._length);
         Check = InData.check;
     };
@@ -165,11 +165,11 @@ public:
         OutData.int64_values._length = Int64Values.Num();
         OutData.int64_values._buffer = dds_sequence_long_long_allocbuf(Int64Values.Num());
         OutData.int64_values._release = true;
-        UMRSConvertUtils::TArrayToSequence<int64, int64>(Int64Values, OutData.int64_values._buffer, Int64Values.Num());
+        UMRSConvertUtils::TArrayToSequence<int64_t, int64>(Int64Values, OutData.int64_values._buffer, Int64Values.Num());
         OutData.uint64_values._length = Uint64Values.Num();
         OutData.uint64_values._buffer = dds_sequence_unsigned_long_long_allocbuf(Uint64Values.Num());
         OutData.uint64_values._release = true;
-        UMRSConvertUtils::TArrayToSequence<uint64, uint64>(Uint64Values, OutData.uint64_values._buffer, Uint64Values.Num());
+        UMRSConvertUtils::TArrayToSequence<uint64_t, uint64>(Uint64Values, OutData.uint64_values._buffer, Uint64Values.Num());
         OutData.string_values._length = StringValues.Num();
         OutData.string_values._buffer = dds_sequence_string_allocbuf(StringValues.Num());
         OutData.string_values._release = true;
