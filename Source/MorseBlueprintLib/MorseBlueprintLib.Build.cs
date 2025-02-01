@@ -7,14 +7,21 @@ public class MorseBlueprintLib : ModuleRules
 	public MorseBlueprintLib(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
-
+		
+		PublicDependencyModuleNames.AddRange(
+			new string[] { 
+				"Core", 
+				"CoreUObject", 
+				"Engine",
+				"InputCore",
+				"Slate",
+				"DeveloperSettings"
+			}
+		);
 		
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core",
-				"CoreUObject",
-				"Engine",
 				"BlueprintGraph",
 				"UnrealEd",
 				"SlateCore",
@@ -23,6 +30,6 @@ public class MorseBlueprintLib : ModuleRules
                 "KismetCompiler",
 				"Morse"
             }
-            );
+		);
 	}
 }

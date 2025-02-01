@@ -7,7 +7,6 @@
  * @copyright Nicolas Brugie. All rights reserved.
  *********************************************************************/
 #pragma once
-#pragma once
 
 #include "CoreMinimal.h"
 #include "K2Node.h"
