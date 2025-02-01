@@ -6,12 +6,6 @@
             </Interfaces>
             <MaxMessageSize>65500B</MaxMessageSize>
         </General>
-        <Discovery>
-      		<ParticipantIndex>auto</ParticipantIndex>
-      		<Ports><Base>7400</Base></Ports>
-      		<Peers><Peer address="192.168.1.31"/></Peers>
-            	<EnableTopicDiscoveryEndpoints>true</EnableTopicDiscoveryEndpoints>
-        </Discovery>
         <Internal>
             <Watermarks>
                 <WhcHigh>500kB</WhcHigh>
