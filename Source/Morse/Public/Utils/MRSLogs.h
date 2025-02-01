@@ -56,9 +56,10 @@ static const TCHAR* GetReturnCodeDescription(int32 Code)
 #define RC_DDS_CHECK(rc) \
 do { \
 if ((rc) < 0) { \
-UE_LOG(LogDDS, Warning, TEXT("RC: %d - %s (File: %s, Function: %s, Line: %d)"), \
-rc, GetReturnCodeDescription(rc), TEXT(__FILE__), TEXT(__FUNCTION__), __LINE__); \
+UE_LOGFMT(LogDDS, Warning, "RC: {0} - {1} (File: {2}, Function: {3}, Line: {4})", \
+rc, GetReturnCodeDescription(rc), *FString(__FILE__), *FString(__FUNCTION__), __LINE__); \
 } \
 } while (0)
+
 
 
