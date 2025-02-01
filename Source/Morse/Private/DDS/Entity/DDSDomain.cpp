@@ -7,7 +7,7 @@
 #include "Core/MRSSettings.h"
 #include "Utils/MRSLogs.h"
 #include "Misc/Paths.h"
-#include "HAL/PlatformFilemanager.h"
+#include "HAL/PlatformFileManager.h"
 #include "HAL/FileManager.h"
 
 void FDDSDomain::Initialize()
@@ -27,7 +27,7 @@ void FDDSDomain::Initialize()
 	auto XmlConfigAnsi = StringCast<ANSICHAR>(*XmlConfig);
 	const char* XmlConfigChar = XmlConfigAnsi.Get();
 	
-	EntityHandler = dds_create_domain(NULL, XmlConfigChar);
+	EntityHandler = dds_create_domain(0, XmlConfigChar);
 
 	if (EntityHandler < 0)
 	{
@@ -47,7 +47,7 @@ void FDDSDomain::Terminate()
 
 dds_domainid_t FDDSDomain::GetDomainId() const
 {
-	dds_domainid_t OutId;
+	dds_domainid_t OutId = 0;
 	RC_DDS_CHECK(dds_get_domainid(EntityHandler, &OutId));
 	return OutId;
 };
