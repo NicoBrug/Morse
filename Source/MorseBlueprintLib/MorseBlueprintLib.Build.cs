@@ -25,7 +25,7 @@ public class MorseBlueprintLib : ModuleRules
             }
             );
 
-		bUseRTTI = true;  
-		bEnableExceptions = true;
+		//bUseRTTI = true;  
+		//bEnableExceptions = true;
 	}
 }
