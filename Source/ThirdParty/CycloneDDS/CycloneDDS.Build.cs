@@ -24,7 +24,7 @@ public class CycloneDDS : ModuleRules
 		string IncludePath = Path.Combine(ModuleDirectory, "Windows", "Include");
 		string DllPath = Path.Combine(ModuleDirectory, "Windows", "Bin", "ddsc.dll");
 		string LibPath = Path.Combine(ModuleDirectory, "Windows", "Lib", "ddsc.lib");
-		string TargetOutputDll = Path.Combine("$(Binaries)", Path.GetFileName(DllPath));
+		string TargetOutputDll = Path.Combine("$(BinaryOutputDir)", Path.GetFileName(DllPath));
 		
 		PublicIncludePaths.Add(IncludePath);
 		PublicAdditionalLibraries.Add(LibPath);
@@ -45,10 +45,12 @@ public class CycloneDDS : ModuleRules
 	{
 		string IncludePath = Path.Combine(ModuleDirectory, "Linux", "Include");
 		string LibPath = Path.Combine(ModuleDirectory, "Linux", "Lib", "libddsc.so");
-        
+		string TargetOutputLib = Path.Combine("$(BinaryOutputDir)", Path.GetFileName(LibPath));
+
 		PublicIncludePaths.Add(IncludePath);
 		PublicAdditionalLibraries.Add(LibPath);
-        
+		RuntimeDependencies.Add(TargetOutputLib, LibPath);
+
 		PublicDefinitions.Add("_WIN32=0");
 		PublicDefinitions.Add("__MINGW32__=0");
 		PublicDefinitions.Add("__VXWORKS__=0");
