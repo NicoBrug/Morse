@@ -43,7 +43,7 @@ See the standards specification :
 
 ### Supported Platforms :  
 ![Windows](https://img.shields.io/badge/Windows-Supported-blue?logo=windows)  
-![Linux](https://img.shields.io/badge/Linux-In_Progress-orange?logo=linux)
+![Linux](https://img.shields.io/badge/Linux-Supported-blue?logo=linux)
 
 ## ✅ Installation
 
