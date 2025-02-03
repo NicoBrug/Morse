@@ -1,8 +1,17 @@
 <h1 align="center">MORSE</h1>
 <h3 align="center">A Distributed Simulation Framework for Unreal Engine</h3>
 
-[![Share](https://img.shields.io/badge/share-000000?logo=x&logoColor=white)](https://x.com/intent/tweet?text=Check%20out%20this%20cool%20project%20on%20GitHub!%20https://github.com/NicoBrug/Morse%20%23UnrealEngine%20%23DDS%20%23Standarts)
-[![Share](https://img.shields.io/badge/share-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/NicoBrug/Morse)
+<p align="center">
+  <a href="" target="_blank">
+    <img alt="Badge showing project license type" src="https://img.shields.io/badge/License-Apache%202.0-green.svg">
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/Windows-Supported-blue?logo=windows" alt="Windows Supported OS">
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/Linux-Supported-blue?logo=linux" alt="Linux Supported OS">
+  </a>
+</p>
 
 ## Table of Contents
 - [About](#-about)
@@ -23,9 +32,14 @@ Morse is a framework designed for building simulation software and integrating U
 
 A practical example of Morse, is the integration of the ROS data model to synchronize data between the ROS framework and an Unreal Engine application. This ROS data model has been added as a dedicated module within Morse (see Exemple).
 
+<p align="center">
+  <i>Please consider leaving a star if you loved this project! </i>⭐
+</p>
+
+
 ### Morse Framework Component : 
-- [Morse Core - This repo](https://github.com/NicoBrug/Morse) : Contains the core of Morse, including the middleware and APIs.
-- [ROS Data Model - GitHub](https://github.com/NicoBrug/MorseROSDataModel) : A plugin that implements the ROS data model for Morse.
+- [Morse Core](https://github.com/NicoBrug/Morse) : Contains the core of Morse, including the middleware and APIs.
+- [ROS Data Model](https://github.com/NicoBrug/MorseROSDataModel) : A plugin that implements the ROS data model for Morse.
 - IDL to Unreal Translator 🔜 : A plugin that enables the automatic integration of IDL files into Unreal Engine. 
 - Robotic Simulation 🔜 : A plugin that provides a robotics simulation layer within Unreal Engine.
 
@@ -41,9 +55,6 @@ See the standards specification :
 - **IDL Specification**: https://www.omg.org/spec/IDL/4.2/About-IDL
 - **Cyclone DDS**: https://cyclonedds.io/
 
-### Supported Platforms :  
-![Windows](https://img.shields.io/badge/Windows-Supported-blue?logo=windows)  
-![Linux](https://img.shields.io/badge/Linux-In_Progress-orange?logo=linux)
 
 ## ✅ Installation
 
@@ -221,3 +232,8 @@ If you have any questions, feedback, or inquiries about this project, feel free 
 - **Email**: [nicolasbrugie@gmail.com](mailto:nicolasbrugie@gmail.com)
 - **LinkedIn**: [Brugie Nicolas](https://www.linkedin.com/in/nicolas-brugie/)
 - **GitHub Issues**: [Open an Issue](https://github.com/NicoBrug/Morse/issues)
+
+
+## 📝 License ##
+
+This project is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). Please refer to the [LICENSE](LICENSE) file for further details.
