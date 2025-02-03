@@ -2,15 +2,9 @@
 <h3 align="center">A Distributed Simulation Framework for Unreal Engine</h3>
 
 <p align="center">
-  <a href="" target="_blank">
-    <img alt="Badge showing project license type" src="https://img.shields.io/badge/License-Apache%202.0-green.svg">
-  </a>
-  <a href="">
-    <img src="https://img.shields.io/badge/Windows-Supported-blue?logo=windows" alt="Windows Supported OS">
-  </a>
-  <a href="">
-    <img src="https://img.shields.io/badge/Linux-Supported-blue?logo=linux" alt="Linux Supported OS">
-  </a>
+  <a href="" target="_blank"><img alt="Badge showing project license type" src="https://img.shields.io/badge/License-Apache%202.0-green.svg"></a>
+  <a href=""><img src="https://img.shields.io/badge/Windows-Supported-blue?logo=windows" alt="Windows Supported OS"></a>
+  <a href=""><img src="https://img.shields.io/badge/Linux-Supported-blue?logo=linux" alt="Linux Supported OS"></a>
 </p>
 
 ## Table of Contents
