@@ -55,7 +55,6 @@ See the standards specification :
 - **IDL Specification**: https://www.omg.org/spec/IDL/4.2/About-IDL
 - **Cyclone DDS**: https://cyclonedds.io/
 
-
 ## ✅ Installation
 
 Morse has no direct dependencies on ROS and is built on the CycloneDDS implementation of DDS.
