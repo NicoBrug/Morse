@@ -229,4 +229,4 @@ If you have any questions, feedback, or inquiries about this project, feel free 
 
 ## 📝 License ##
 
-This project is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). Please refer to the [LICENSE](LICENSE) file for further details.
+This project is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). Please refer to the [LICENSE](LICENSE) file for further details. This project uses Cyclone DDS, which is licensed under EPL-2.0. See [EPL-2.0](https://www.eclipse.org/legal/epl-2.0/) for more details.
