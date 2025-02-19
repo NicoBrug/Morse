@@ -425,7 +425,7 @@ public:
 	 * Default: 1 second (1000000000 nanoseconds).
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int64 LeaseDuration = 1000000000;
+	int64 LeaseDuration = 9223372036854775807;
 };
 
 /**

@@ -79,17 +79,23 @@ void UDDSReader::DataAvailableHandler(dds_entity_t Reader, void* Arg)
 		return;
 		
 	UDDSReader* ReaderInstance = static_cast<UDDSReader*>(Arg);
-	if (ReaderInstance)
+
+	AsyncTask(ENamedThreads::GameThread, [Reader, ReaderInstance]()
 	{
-		ReaderInstance->OnDataAvailable(Reader);
-	}
+		if (ReaderInstance)
+		{
+			ReaderInstance->OnDataAvailable(Reader);
+		}
+	});
 }
 
 void UDDSReader::OnDataAvailable(dds_entity_t reader)
 {
 	Read();
 	if(Topic && Topic->GetTopicProxy())
+	{
 		Topic->GetTopicProxy()->ExecuteMessageCallback();
+	}
 }
 
 UDDSTopic* UDDSReader::GetTopic()

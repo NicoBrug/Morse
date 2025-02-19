@@ -48,7 +48,7 @@ void UDDSTopic::Terminate()
     SetState(EEntityState::DESTROYED);
 };
 
-void UDDSTopic::SetMessageType(TSubclassOf<UTopicProxy> MsgClass)
+void UDDSTopic::SetDataType(TSubclassOf<UTopicProxy> MsgClass)
 {
     if (MsgClass)
     {

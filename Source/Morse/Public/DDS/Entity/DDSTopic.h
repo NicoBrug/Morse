@@ -63,7 +63,7 @@ public:
 	 * 
 	 * @param MsgClass : TSubclassOf<UTopicProxy>, the data type the proxy need to used.
 	 */
-	void SetMessageType(TSubclassOf<UTopicProxy> MsgClass);
+	void SetDataType(TSubclassOf<UTopicProxy> MsgClass);
 
 	/**
 	 * @brief Get the data proxy of the Topic 

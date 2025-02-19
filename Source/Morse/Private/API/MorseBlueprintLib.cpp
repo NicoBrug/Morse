@@ -50,11 +50,11 @@ bool UMorseLib::CreateReader(UObject* Owner, FTopicDescription Settings, TSubcla
     if (pTopic)
     {
         pTopic->SetName(Settings.Name);
-        pTopic->SetMessageType(DataType); //TODO : Change function name and call in UTopic Initialisation 
+        pTopic->SetDataType(DataType);
         pTopic->SetParticipant(Morse->GetDefaultParticipant());
         pTopic->SetQoS(Settings.QualityOfService);
         pTopic->Initialize();
-    }
+    };
 
     UDDSReader* Reader = NewObject<UDDSReader>(Owner);
 
@@ -87,7 +87,7 @@ bool UMorseLib::CreateWriter(UObject* Owner, FTopicDescription Settings, TSubcla
     if (pTopic)
     {
         pTopic->SetName(Settings.Name);
-        pTopic->SetMessageType(DataType); //TODO : Change function name and call in UTopic Initialisation 
+        pTopic->SetDataType(DataType);
         pTopic->SetParticipant(Morse->GetDefaultParticipant());
         pTopic->SetQoS(Settings.QualityOfService);
         pTopic->Initialize();
