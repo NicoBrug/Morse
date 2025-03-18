@@ -33,16 +33,16 @@ struct FMRSQuaternion
 
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    double W;
+    double W = 0.0;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    double X;
+    double X = 0.0;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    double Y;
+    double Y = 0.0;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    double Z;
+    double Z = 0.0;
     
 
     void DDSToUE(const Unreal_Math_Quaternion& InData);
@@ -89,13 +89,13 @@ struct FMRSVector3
 
     
     UPROPERTY(EditAnywhere)
-    double X;
+    double X = 0.0;
     
     UPROPERTY(EditAnywhere)
-    double Y;
+    double Y = 0.0;
     
     UPROPERTY(EditAnywhere)
-    double Z;
+    double Z = 0.0;
     
 
     void DDSToUE(const Unreal_Math_Vector3& InData);
@@ -192,10 +192,10 @@ struct FMRSVector2D
 
     
     UPROPERTY(EditAnywhere)
-    double X;
+    double X = 0.0;
     
     UPROPERTY(EditAnywhere)
-    double Y;
+    double Y = 0.0;
     
 
     void DDSToUE(const Unreal_Math_Vector2D& InData);

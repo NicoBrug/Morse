@@ -91,7 +91,7 @@ public:
     TArray<FString> StringValues;
     
     UPROPERTY(EditAnywhere)
-    int32 Check;
+    int32 Check = 0;
     
 
     /**

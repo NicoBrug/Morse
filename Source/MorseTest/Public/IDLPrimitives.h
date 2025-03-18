@@ -77,39 +77,39 @@ public:
 
     
     UPROPERTY(EditAnywhere)
-    bool BoolValue;
+    bool BoolValue = false;
     
     char ByteValue;
     
     unsigned char CharValue;
     
     UPROPERTY(EditAnywhere)
-    float Float32Value;
+    float Float32Value = 0.0f;
     
     UPROPERTY(EditAnywhere)
-    double Float64Value;
+    double Float64Value = 0.0;
     
     char Int8Value;
     
     uint8 Uint8Value;
     
     UPROPERTY(EditAnywhere)
-    int16 Int16Value;
+    int16 Int16Value = 0;
     
     UPROPERTY(EditAnywhere)
-    uint16 Uint16Value;
+    uint16 Uint16Value = 0;
     
     UPROPERTY(EditAnywhere)
-    int32 Int32Value;
+    int32 Int32Value = 0;
     
     UPROPERTY(EditAnywhere)
-    unsigned int Uint32Value;
+    unsigned int Uint32Value = 0;
     
     UPROPERTY(EditAnywhere)
-    int64 Int64Value;
+    int64 Int64Value = 0;
     
     UPROPERTY(EditAnywhere)
-    uint64 Uint64Value;
+    uint64 Uint64Value = 0;
     
     UPROPERTY(EditAnywhere)
     FString StringValue;

@@ -462,7 +462,7 @@ public:
 	 * Higher values may indicate stronger control or priority for a specific writer.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int Strength;
+	int Strength = 0;
 };
 
 /**

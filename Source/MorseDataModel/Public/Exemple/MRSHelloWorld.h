@@ -35,7 +35,7 @@ struct FMRSHelloWorld
     FString Hellostr;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    float Hellofloat;
+    float Hellofloat = 0.0f;
     
 
     void DDSToUE(const Unreal_Exemple_HelloWorld& InData);
