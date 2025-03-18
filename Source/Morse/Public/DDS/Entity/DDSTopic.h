@@ -73,9 +73,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MRS TopicProxy")
 	UTopicProxy* GetTopicProxy()
 	{
-		if (!IsValid(TopicProxy))
-			return nullptr;
-
 		return TopicProxy;
 	};
 

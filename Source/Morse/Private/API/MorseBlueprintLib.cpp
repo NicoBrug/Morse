@@ -1,6 +1,7 @@
 #include "API/MorseBlueprintLib.h"
 #include "Core/MRSSubsystem.h"
 #include "Utils/MRSLogs.h"
+#include "Core/MRSExecutor.h"
 
 bool UMorseLib::CreateWriterBlueprint(
     UObject* Owner,
@@ -64,6 +65,8 @@ bool UMorseLib::CreateReader(UObject* Owner, FTopicDescription Settings, TSubcla
         Reader->SetParticipant(Morse->GetDefaultParticipant());
         Reader->SetQoS(Settings.QualityOfService);
         Reader->Initialize();
+
+        Morse->GetDefaultExecutor()->AddEntity(Reader);
     };
 
     OutReader = Reader;

@@ -1,5 +1,6 @@
 #include "Core/MRSSubsystem.h"
 #include "Engine/World.h"
+#include "Core/MRSExecutor.h"
 
 #include "Core/MRSSettings.h"
 
@@ -43,6 +44,12 @@ void UMorseSubsystem::OnPostWorldInit(UWorld* pWorld, const UWorld::Initializati
 {
 	DefaultParticipant = NewObject<UDDSParticipant>(this);
 	DefaultParticipant->Initialize();
+
+	const FTimespan ThreadWaitTime = FTimespan::FromMilliseconds(10);  
+	const FString UniqueServerName = "MorseExecutor";
+
+	Executor = MakeShared<MRSThreadedExecutor>(ThreadWaitTime, *UniqueServerName);
+	Executor->Init(DefaultParticipant);
 };
 
 UDDSParticipant* UMorseSubsystem::GetDefaultParticipant()

@@ -1,78 +1,50 @@
+/*****************************************************************
+ * @file   MRSExecutor.h
+ * @brief  /
+ * 
+ * @author Nicolas B.
+ * @date   March 2024
+ * @copyright Copyright 2025 NicoBrugie. All rights reserved.
+ *********************************************************************/
 #pragma once
 
+#include "MRSBaseThread.h"
 #include "DDS/Entity/DDSEntity.h"
 #include "DDS/Entity/DDSParticipant.h"
+#include "Utils/MRSLogs.h"
 
-#include "MRSSubsystem.h"
-
- /**
-  * @brief TODO implement the executor 
-  * NOT USED
-  */
- class MORSE_API MRSExecutor
+class MORSE_API MRSThreadedExecutor : public MRSThreadBase
 {
 public:
 
-    MRSExecutor();
-    ~MRSExecutor();
+	typedef MRSThreadBase Super;
 
-    dds_entity_t m_Waitset;
+	MRSThreadedExecutor(const FTimespan& InThreadTickRate, const TCHAR* InName);
+	virtual ~MRSThreadedExecutor();
+	
+	virtual void ThreadTick(double dDeltaTime) override;
+ 
+    void Init(UDDSParticipant* Participant);
+ 	void AddEntity(UDDSEntity* Entity);
+    void Execute();
+ 
+ private :
+	
+	bool IsRunning;
+	bool ShouldStop = false;
+	TSet<dds_attach_t> AttachedEntities;
+	dds_entity_t WaitsetHandler;
+	TArray<UDDSEntity*> m_pEntities;
 
-    void Init(UDDSParticipant* Participant)
-    {
-        m_Waitset = dds_create_waitset(Participant->GetEntity());
-    };
-
-    void Fini()
-    {
-        UMorseSubsystem* MorseSubsystem = UMorseSubsystem::Get();
-
-    };
-
-    void Spin()
-    {
-        (void)dds_waitset_wait(m_Waitset, NULL, 0, DDS_INFINITY);
-
-        for (auto Entity : m_pEntities)
-        {
-            (void)dds_waitset_attach(m_Waitset, Entity->GetEntity(), 0);
-
-            switch (Entity->GetType())
-            {
-            case EEntityType::DDS_PUBLISHER:
-                // Traitement pour les entit�s de type Publisher
-                break;
-
-            case EEntityType::DDS_SUBSCRIBER:
-                // Traitement pour les entit�s de type Subscriber
-                break;
-
-            case EEntityType::DDS_READER:
-                // Traitement pour les entit�s de type Reader
-                break;
-
-            case EEntityType::DDS_WRITER:
-                // Traitement pour les entit�s de type Writer
-                break;
-
-            case EEntityType::DDS_READ_CONDITION:
-                // Traitement pour les entit�s de type Read Condition
-                break;
-
-            case EEntityType::DDS_TOPIC:
-                // Traitement pour les entit�s de type Topic
-                break;
-
-            case EEntityType::NONE:
-                // Traitement pour les entit�s de type NONE
-                break;
-
-            default:
-                // Gestion d'un cas non pr�vu
-                break;
-            };
-        };
-    };
-
-    TArray<UDDSEntity*> m_pEntities;
+	/** -------- ENTITY HANDLERS BEGIN -------- */
+ 	void HandleEntity(UDDSEntity* Entity);
+ 	void HandleReader(UDDSEntity* Entity);
+	/** -------- ENTITY HANDLERS END -------- */
+	
+	/** -------- WAITSET OPERATIONS BEGIN -------- */
+	void AttachEntitiesToWaitset();
+	void AttachEntityToWaitset(UDDSEntity* Entity);
+	void DetachEntityFromWaitset(UDDSEntity* Entity);
+	void DetachAllEntitiesFromWaitset();
+	/** -------- WAITSET OPERATIONS END -------- */
 };

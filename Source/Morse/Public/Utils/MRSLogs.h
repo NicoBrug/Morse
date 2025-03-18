@@ -13,6 +13,7 @@
 
 MORSE_API DECLARE_LOG_CATEGORY_EXTERN(LogMorse, Log, All)
 MORSE_API DECLARE_LOG_CATEGORY_EXTERN(LogDDS, Log, All)
+MORSE_API DECLARE_LOG_CATEGORY_EXTERN(LogExecutor, Log, All)
 
 // Struct to map DDS return codes to their descriptions
 struct FReturnCodeMapping

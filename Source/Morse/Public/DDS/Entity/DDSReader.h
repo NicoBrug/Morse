@@ -43,11 +43,6 @@ public:
 	virtual void Terminate() override;
 	//~ End UDDSEntity Interface.
 
-	static void DataAvailableHandler(dds_entity_t Reader, void* Arg);
-
-	// Non-static function to handle data
-	void OnDataAvailable(dds_entity_t reader);
-
 	UFUNCTION(BlueprintCallable, Category = "Topics")
 	UDDSTopic* GetTopic();
 
@@ -92,6 +87,9 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable)
 	void Read();
+
+	UFUNCTION(BlueprintCallable)
+	void Take();
 
 	/**
 	 * @brief The topic associated with this DDS Reader.

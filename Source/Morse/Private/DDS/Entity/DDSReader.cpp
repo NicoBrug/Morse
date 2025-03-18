@@ -27,8 +27,8 @@ void UDDSReader::Initialize()
 
 	QoSUtils::SetQos(GetQoS(), *Qos);
 
-	Listener = dds_create_listener(NULL);
-	dds_lset_data_available_arg(Listener, DataAvailableHandler, this, false); 
+	//Listener = dds_create_listener(NULL);
+	//dds_lset_data_available_arg(Listener, DataAvailableHandler, this, false); 
 
 	EntityHandler = dds_create_reader
 	(
@@ -71,32 +71,7 @@ void UDDSReader::Terminate()
 	RC_DDS_CHECK(dds_delete(EntityHandler));
 
 	SetState(EEntityState::DESTROYED);
-}
-
-void UDDSReader::DataAvailableHandler(dds_entity_t Reader, void* Arg)
-{
-	if(Reader == 0)
-		return;
-		
-	UDDSReader* ReaderInstance = static_cast<UDDSReader*>(Arg);
-
-	AsyncTask(ENamedThreads::GameThread, [Reader, ReaderInstance]()
-	{
-		if (ReaderInstance)
-		{
-			ReaderInstance->OnDataAvailable(Reader);
-		}
-	});
-}
-
-void UDDSReader::OnDataAvailable(dds_entity_t reader)
-{
-	Read();
-	if(Topic && Topic->GetTopicProxy())
-	{
-		Topic->GetTopicProxy()->ExecuteMessageCallback();
-	}
-}
+};
 
 UDDSTopic* UDDSReader::GetTopic()
 {
@@ -124,6 +99,28 @@ void UDDSReader::Read()
 
 	void* Data = Topic->GetTopicProxy()->Get();
 	Rc = dds_read
+	(
+		EntityHandler,
+		&Data,
+		infos,
+		Topic->GetTopicProxy()->GetTypeDesc()->m_size,
+		1
+	);
+	
+	RC_DDS_CHECK(Rc); //DDS Check return code
+}
+
+void UDDSReader::Take()
+{
+	int Rc = 0;
+
+	if (!IsValid(Topic))
+		return;
+
+	dds_sample_info_t infos[1];
+
+	void* Data = Topic->GetTopicProxy()->Get();
+	Rc = dds_take
 	(
 		EntityHandler,
 		&Data,

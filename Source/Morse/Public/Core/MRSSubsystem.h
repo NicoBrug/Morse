@@ -22,8 +22,10 @@
 #include "Kismet/GameplayStatics.h"
 #include "DDS/QoS/DDSQoS.h"
 
+
 #include "MRSSubsystem.generated.h"
 
+class MRSThreadedExecutor;
 
 USTRUCT(BlueprintType)
 struct FTopicDescription
@@ -72,9 +74,16 @@ public:
      */
     UFUNCTION(BlueprintPure, BlueprintCallable)
     UDDSParticipant* GetDefaultParticipant();
-   
+
+    TSharedPtr<MRSThreadedExecutor> GetDefaultExecutor() const
+    {
+        return Executor;
+    };
+
 private:
 
     UPROPERTY()
     UDDSParticipant* DefaultParticipant; //default participant of morse, ALL the entity will be created with this participant
+    
+    TSharedPtr<MRSThreadedExecutor> Executor;
 };
