@@ -32,7 +32,7 @@
 		},
 		{
 			"Name": "MorseTest",
-			"Type": "Runtime",
+			"Type": "UncookedOnly",
 			"LoadingPhase": "Default"
 		},
 		{
