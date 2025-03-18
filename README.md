@@ -10,6 +10,8 @@
 ## Table of Contents
 - [About](#-about)
 - [Installation](#-installation)
+- - [Plugin](#plugin)
+- - [DDSPython](#cyclone-dds-python)
 - [Documentation](#-documentation)
 - - [Settings](#morse-settings)
 - - [Blueprint API Reference](#blueprint-api-reference)
@@ -49,8 +51,14 @@ See the standards specification :
 - **IDL Specification**: https://www.omg.org/spec/IDL/4.2/About-IDL
 - **Cyclone DDS**: https://cyclonedds.io/
 
+## 📖 Overall Architecture
+Morse's architecture is designed for flexibility and integration. At its core, Morse comprises a communication module implemented as an Unreal Engine plugin. Additional plugins can be added to represent data models defined in IDL. Users can seamlessly integrate these IDL data models into Unreal through automated conversion tools. Custom user code is then layered on top of this foundation, enabling bespoke functionality. Moreover, third-party applications can connect to Morse—as long as they conform to the same data model and utilize the DDS (Data Distribution Service) for data distribution.
+
+![alt text](Resources/OverallArchitecture.png)
+
 ## ✅ Installation
 
+### Plugin
 Morse has no direct dependencies on ROS and is built on the CycloneDDS implementation of DDS.
 To install Morse in a project, simply download the plugin and add it to the project's plugins folder.
 
@@ -64,6 +72,36 @@ git clone https://github.com/NicoBrug/Morse.git
 ```
 
 Rebuild you're solution.
+
+### Cyclone DDS Python
+
+If you want to install DDS for use in Python, follow the instructions from the [CycloneDDS repository](https://github.com/eclipse-cyclonedds/cyclonedds-python) for Linux installation. Below are the steps to install CycloneDDS for Python on Windows.
+
+#### 1. Compile CycloneDDS Binaries (Version 0.10)
+
+⚠️ **Warning:** The `main` branch of CycloneDDS is not stable. You must use a stable release, such as version **0.10**.
+
+```sh
+git clone https://github.com/eclipse-cyclonedds/cyclonedds.git --branch releases/0.10.x --depth 1
+cd cyclonedds
+mkdir build
+cd build
+cmake -G "<Your CMake Generator>" -DCMAKE_INSTALL_PREFIX=".\install" ..
+cmake --build .
+cmake --build . --target install
+```
+
+#### 2. Set Up the Environment Variable
+
+Add the installation path (`.\install`) to the `CYCLONEDDS_HOME` environment variable.
+
+#### 3. Install the Python Package
+
+```sh
+pip3 install cyclonedds --no-binary cyclonedds
+```
+
+After completing these steps, you should be able to use any DDS implementation. So far, **Morse** has been tested successfully with CycloneDDS.
 
 ## 📚 Documentation
 
