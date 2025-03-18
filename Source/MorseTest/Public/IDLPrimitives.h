@@ -133,7 +133,7 @@ public:
         Uint32Value = InData.uint32_value;
         Int64Value = InData.int64_value;
         Uint64Value = InData.uint64_value;
-        UMRSConvertUtils::DDSStringToUE( InData.string_value, StringValue);
+        MRSConvertUtils::DDSStringToUE( InData.string_value, StringValue);
     };
 
     void UEToDDS (test_msgs_msg_Primitives& OutData) 
@@ -151,7 +151,7 @@ public:
         OutData.uint32_value = Uint32Value;
         OutData.int64_value = Int64Value;
         OutData.uint64_value = Uint64Value;
-        UMRSConvertUtils::UEStringToDDS(StringValue, OutData.string_value );
+        MRSConvertUtils::UEStringToDDS(StringValue, OutData.string_value );
     };
     
     /**

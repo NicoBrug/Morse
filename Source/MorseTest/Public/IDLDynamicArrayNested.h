@@ -58,7 +58,7 @@ public:
      */
     void DDSToUE (const test_msgs_msg_DynamicArrayNested& InData) 
     {
-        UMRSConvertUtils::SequenceToTArray<test_msgs_msg_Primitives, FIDLPrimitives>(InData.primitive_values._buffer, PrimitiveValues, InData.primitive_values._length);
+        MRSConvertUtils::SequenceToTArray<test_msgs_msg_Primitives, FIDLPrimitives>(InData.primitive_values._buffer, PrimitiveValues, InData.primitive_values._length);
     };
 
     void UEToDDS (test_msgs_msg_DynamicArrayNested& OutData) 
@@ -66,7 +66,7 @@ public:
         OutData.primitive_values._length = PrimitiveValues.Num();
         OutData.primitive_values._buffer = dds_sequence_test_msgs_msg_Primitives_allocbuf(PrimitiveValues.Num());
         OutData.primitive_values._release = true;
-        UMRSConvertUtils::TArrayToSequence<test_msgs_msg_Primitives, FIDLPrimitives>(PrimitiveValues, OutData.primitive_values._buffer, PrimitiveValues.Num());
+        MRSConvertUtils::TArrayToSequence<test_msgs_msg_Primitives, FIDLPrimitives>(PrimitiveValues, OutData.primitive_values._buffer, PrimitiveValues.Num());
     };
     
     /**

@@ -6,16 +6,12 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Utils/MRSConvertUtils.h"
 #include "CycloneImpl/Math/Geometry.h"
-#include "MorseDataModelUtils.generated.h"
 
 /**
  * 
  */
-UCLASS()
-class MORSEDATAMODEL_API UMorseDataModelUtils : public UMRSConvertUtils
+class MORSEDATAMODEL_API UMorseDataModelUtils : public MRSConvertUtils
 {
-	GENERATED_BODY()
-
 public:
 	static void UEVectorToDDS(const FVector& InVector, Unreal_Math_Vector3& OutVector)
 	{
