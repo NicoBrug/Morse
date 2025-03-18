@@ -33,7 +33,7 @@ public class CycloneDDS : ModuleRules
 		PublicDefinitions.Add("__MINGW32__=1");
 		PublicDefinitions.Add("DDSRT_WITH_FREERTOS=0");
 		PublicDefinitions.Add("__GNUC__=1");
-		PublicDefinitions.Add("__clang__=1");
+		//PublicDefinitions.Add("__clang__=1");
 		PublicDefinitions.Add("__GNUC_MINOR__=3");
 		PublicDefinitions.Add("__GNUC_PATCHLEVEL__=0");
 		PublicDefinitions.Add("__clang_major__=12");
