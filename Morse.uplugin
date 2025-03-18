@@ -34,6 +34,11 @@
 			"Name": "MorseTest",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "MorseDataModel",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	]
 }
